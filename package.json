@@ -1,0 +1,16 @@
+{
+	"name": "poison",
+	"description": "The high performance cross-platform desktop/mobile UI engine.",
+	"authors": [
+		"Jacob Jensen"
+	],
+	"license": "The MIT License (MIT)",
+	"copyright": "Copyright © 2016 Poison Engine",
+	"targetType": "sourceLibrary",
+	"sourcePaths": ["src"],
+	"dependencies": {
+		"dsfml": {
+			"version": "~>2.1.1"
+		}
+	}
+}
