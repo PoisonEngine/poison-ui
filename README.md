@@ -23,6 +23,6 @@ A lot of stuff can change until we reach our first revision.
 ## How do I contribute?
 Keep your eyes open for updates, there'll soon be a contribution guide. As for now you can fork the project and simple create pull requests with whatever contributions you have. We're not so strict as it is right now.
 
-You can follow the project management here or join in yourself:
+Project management, issue tracking and guides:
 
 https://tree.taiga.io/project/poisonengine-poison-ui/
