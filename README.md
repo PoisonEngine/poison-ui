@@ -1,3 +1,7 @@
+<a href="https://code.dlang.org/packages/poison" title="Go to poison">
+    <img src="https://img.shields.io/dub/v/poison.svg" alt="Dub version">
+</a>
+
 # Poison - The high performance cross-platform desktop/mobile UI engine
 Poison is a high performance cross-platform desktop/mobile UI engine written in D using dsfml.
 It's based on the idea of having a UI library that is compatible with games and multithreaded applications.
