@@ -21,9 +21,15 @@ Styling components with Poison has been made easy with a json-like/css-like synt
 The syntax is simple.
 
 First you put a selector. There are 3 types of selectors.
+
 * Class selectors - Genereally there exist a class for every component.
 * Identifier selectors
 * State selectors - Must be combined with one of the two selectors above. Used to style depending on states ex. when a component is enabled or disabled.
+
+Secondly you create a scope of properties that has values. Values may either be a string or an array of strings.
+The strings should consist of either groups of values or a single group with values.
+
+A group separates its values with ";" and groups are separated with "|"
 
 ### Examples
 Syntax Example:
@@ -47,7 +53,7 @@ Example for styling a window.
 }
 ```
 
-### Styling Properties (| is a value separator)
+### Styling Properties (";" is a value separator :: "|" is a group separator)
 
 * background
   * value: "color: value|image: value"
