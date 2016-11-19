@@ -46,6 +46,24 @@ class Container : Component {
     this(name, new Size(100, 100), layers);
   }
 
+  @property {
+    /// Gets a boolean determining whether the container is disabled or not.
+    override bool disabled() { return super.disabled; }
+
+    override void disabled(bool isDisabled) {
+      super.disabled = isDisabled;
+
+      foreach (children; _components) {
+        if (children) {
+          foreach (component; children) {
+            if (component) {
+            }
+          }
+        }
+      }
+    }
+  }
+
   /**
   * Adds a component to the container.
   * Params:

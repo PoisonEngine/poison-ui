@@ -47,6 +47,9 @@ class Component : Space {
   /// Style selectors.
   string[] _selectors;
 
+  /// Selectors to render with.
+  string[] _renderSelectors;
+
   /// The selector name.
   string _selectorName;
 
@@ -120,6 +123,7 @@ class Component : Space {
 
         fireEvent(_disabled ? "beforeDisabled" : "beforeEnabled", EventArgs.empty);
 
+        updateSelectors();
         render();
 
         fireEvent(_disabled ? "disabled" : "enabled", EventArgs.empty);
@@ -225,6 +229,16 @@ class Component : Space {
     hidden = true;
   }
 
+  /// Enables the component.
+  void enable() {
+    enabled = true;
+  }
+
+  /// Disables the component.
+  void disable() {
+    disabled = true;
+  }
+
   /**
   * Adds a style selector.
   * Params:
@@ -232,6 +246,8 @@ class Component : Space {
   */
   void addSelector(string selector) {
     _selectors ~= selector;
+
+    updateSelectors();
   }
 
   /**
@@ -241,18 +257,36 @@ class Component : Space {
   */
   void removeSelector(string selector) {
     _selectors = _selectors.filter!((s) { return s != selector; }).array;
+
+    updateSelectors();
   }
 
   protected:
   /**
   * Processes the component during application cycles.
   * Params:
-  *   window =        The render window to process.
+  *   window = The render window to process.
   */
   void process(RenderWindow window) {
     if (!_hidden) {
       draw(window);
     }
+  }
+
+  private:
+  void updateSelectors() {
+    auto prefix = (_disabled ? ":disabled" : ":enabled");
+
+    _renderSelectors ~= _selectors;
+
+    foreach (selector; _selectors) {
+        _renderSelectors ~= selector ~ prefix;
+    }
+
+    _renderSelectors  ~= _selectorName;
+    _renderSelectors ~= _selectorName ~ prefix;
+
+    updateStyles();
   }
 
   package(poison):
@@ -270,7 +304,7 @@ class Component : Space {
     import poison.ui.styles;
 
     if (_selectors) {
-      foreach (selector; _selectors ~ [_selectorName]) {
+      foreach (selector; _renderSelectors) {
         auto styleEntry = getStyleEntry(selector);
 
         if (styleEntry) {

@@ -43,8 +43,11 @@ private class PictureGraphics {
 /// A picture for image manipulation.
 final class Picture {
   private:
-  /// The sprite.
-  TextureSprite _sprite;
+  /// The background sprite.
+  TextureSprite _backgroundSprite;
+
+  /// The drawing sprite.
+  TextureSprite _drawingSprite;
 
   /// The original filename.
   string _fileName;
@@ -65,13 +68,20 @@ final class Picture {
   void render() {
     assert(_fileName || _size);
 
-    auto image = new Image();
+    Image backgroundImage;
+    auto drawingImage = new Image();
 
     if (_fileName) {
-      image.loadFromFile(_fileName);
+      backgroundImage = new Image();
+      backgroundImage.loadFromFile(_fileName);
+
+      auto imgSize = backgroundImage.getSize();
+      _size = new Size(cast(size_t)imgSize.x, cast(size_t)imgSize.y);
+
+      drawingImage.create(_size.width, _size.height, transparent.sfmlColor);
     }
     else if (_size) {
-      image.create(_size.width, _size.height, _fillPaint.sfmlColor);
+      drawingImage.create(_size.width, _size.height, _fillPaint.sfmlColor);
     }
 
     if (_graphics) {
@@ -84,7 +94,7 @@ final class Picture {
 
         foreach (x; xFrom .. xTo) {
           foreach (y; yFrom .. yTo) {
-            image.setPixel(cast(uint)x, cast(uint)y, color);
+            drawingImage.setPixel(cast(uint)x, cast(uint)y, color);
           }
         }
       }
@@ -92,14 +102,22 @@ final class Picture {
       _graphics = null;
     }
 
-    auto texture = new Texture();
-		texture.loadFromImage(image);
-		texture.setSmooth(true);
+    if (backgroundImage) {
+      auto texture = new Texture();
+  		texture.loadFromImage(backgroundImage);
+  		texture.setSmooth(true);
 
-		_sprite = new TextureSprite(texture);
+  		_backgroundSprite = new TextureSprite(texture);
+    }
 
-    auto imgSize = image.getSize();
-		_size = new Size(cast(size_t)imgSize.x, cast(size_t)imgSize.y);
+    if (drawingImage) {
+      auto texture = new Texture();
+  		texture.loadFromImage(drawingImage);
+  		texture.setSmooth(true);
+
+  		_drawingSprite = new TextureSprite(texture);
+    }
+
     position = _position;
   }
 
@@ -257,15 +275,24 @@ final class Picture {
 
   package(poison):
   @property {
-    /// Gets the sprite of the picture.
-    TextureSprite sprite() { return _sprite; }
+    /// Gets the background sprite of the picture.
+    TextureSprite backgroundSprite() { return _backgroundSprite; }
+
+    /// Gets the drawing sprite of the picture.
+    TextureSprite drawingSprite() { return _drawingSprite; }
 
     /// Sets the position of the picture's sprite.
     void position(Point newPosition) {
       _position = newPosition;
 
-      if (_position && _sprite) {
-        _sprite.position = _position;
+      if (_position) {
+        if (_backgroundSprite) {
+          _backgroundSprite.position = _position;
+        }
+
+        if (_drawingSprite) {
+          _drawingSprite.position = _position;
+        }
       }
     }
   }
