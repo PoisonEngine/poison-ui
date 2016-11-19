@@ -67,10 +67,10 @@ Example for styling a window.
 * background-image
   * value: "path"
   * value: "base64:base64_here"
-* color
+* foreground-color (Done)
   * value: "R;G;B;A"
   * value: "R;G;B"
-  * value: "#hex"
+  * value: "#hex" (Not done)
 * font
   * value: "name: value|path: value|size: value"
 * font-name
