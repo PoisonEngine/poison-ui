@@ -50,6 +50,7 @@ class Container : Component {
     /// Gets a boolean determining whether the container is disabled or not.
     override bool disabled() { return super.disabled; }
 
+    /// Sets a boolean determining whether the container is disabled or not.
     override void disabled(bool isDisabled) {
       super.disabled = isDisabled;
 
@@ -57,6 +58,7 @@ class Container : Component {
         if (children) {
           foreach (component; children) {
             if (component) {
+              component.disabled = isDisabled;
             }
           }
         }
