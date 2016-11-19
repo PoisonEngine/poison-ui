@@ -15,6 +15,9 @@ Poison was born, because right now there isn't any really nice choice to render 
 ## Why not extend existing libraries to support dsfml then?
 Poison is being used in a game project and by having developed the UI engine ourselves, we have full control of how the rendering goes, meaning we could optimize it how we wanted and have it fit to our games need. It also had us apply a sense of multithreading/concurrency pattern from the very beginning as it would be hard to apply that to an existing library without breaking changes. At the end of the day, writing a new library/engine was just much easier.
 
+## How do I use Poison on mobile platforms such as Android or iOS?
+At the moment mobile support hasn't been made, but as soon as desktop makes its first stable-round then it's all about making Poison compile to mobile platforms, create stylesheets and it should be done, since the engine should work on all platforms without major modification.
+
 ## Styling
 Styling components with Poison has been made easy with a json-like/css-like syntax and properties.
 
