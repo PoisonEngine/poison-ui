@@ -15,6 +15,77 @@ Poison was born, because right now there isn't any really nice choice to render 
 ## Why not extend existing libraries to support dsfml then?
 Poison is being used in a game project and by having developed the UI engine ourselves, we have full control of how the rendering goes, meaning we could optimize it how we wanted and have it fit to our games need. It also had us apply a sense of multithreading/concurrency pattern from the very beginning as it would be hard to apply that to an existing library without breaking changes. At the end of the day, writing a new library/engine was just much easier.
 
+## Styling
+Styling components with Poison has been made easy with a json-like/css-like syntax and properties.
+
+The syntax is simple.
+
+First you put a selector. There are 3 types of selectors.
+* Class selectors - Genereally there exist a class for every component.
+* Identifier selectors
+* State selectors - Must be combined with one of the two selectors above. Used to style depending on states ex. when a component is enabled or disabled.
+
+### Examples
+Syntax Example:
+```
+"selector" {
+	"property": "value",
+	"property2": "value"
+},
+"selector2" {
+	"property": "value"
+}
+```
+
+Example for styling a window.
+```
+"window": {
+  "background-color": "238;238;238"
+},
+"window:disabled": {
+  "background-color": "255;0;0"
+}
+```
+
+### Styling Properties (| is a value separator)
+
+* background
+  * value: "color: value|image: value"
+* background-color (Done)
+  * value: "R;G;B;A"
+  * value: "R;G;B;A"
+  * value: "#hex" (Not done)
+* background-image
+  * value: "path"
+  * value: "base64:base64_here"
+* color
+  * value: "R;G;B;A"
+  * value: "R;G;B;A"
+  * value: "#hex"
+* font
+  * value: "name: value|path: value|size: value"
+* font-name
+  * value: "name"
+* font-path
+  * value: "path"
+* font-size
+  * value: "size"
+* paint (Array of values)
+  * value: "position: value|size: value|color: value|gradient-hoz: value (Only fromColor & toColor)|gradient-ver: value (Only fromColor & toColor)"
+* paint-color (Array of values)
+  * value: "position: value|size: value|color: value"
+* paint-gradient-hoz / paint-gradient-ver (Array of values)
+  * value: "position: value|size: value|fromColor: value|toColor: value"
+* border / border-top / border-right / border-bottom / border-left
+  * value: "size;color"
+  * value: "style:size;color" (Style can be normal or round)
+* size
+  * value: "width;height" (values can be set to "auto" which means it will be set elsewhere"
+* margin
+  * value: "top;right;bottom;left"
+* padding
+  * value: "top;right;bottom;left"
+
 ## How do I use poison?
 There will be posted a few guides in the wiki soon, but for now keep an eye open as it's still in its early alpha-phase. Which means nothing is stable as it is and components are still being made.
 
