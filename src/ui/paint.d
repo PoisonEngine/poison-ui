@@ -33,6 +33,8 @@ Paint green = paintFromRGBA(0x00, 0xff, 0x00);
 ///	Blue paint.
 Paint blue = paintFromRGBA(0x00, 0x00, 0xff);
 
+Paint transparent = paintFromRGBA(0x00, 0x00, 0x00, 0x00);
+
 /// Paint structure.
 struct Paint {
 public:
