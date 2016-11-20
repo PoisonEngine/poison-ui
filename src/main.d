@@ -30,9 +30,17 @@ private void main(string[] args) {
     import application;
     run();
   }
-  catch (Throwable t) {
+  catch (Exception e) {
     import std.stdio : writeln, readln;
 
+    writeln(e);
+    readln();
+  }
+  catch (Throwable t) {
+    // TODO: exit program here ...
+    import std.stdio : writeln, readln;
+
+    writeln("Fatal error ...");
     writeln(t);
     readln();
   }
