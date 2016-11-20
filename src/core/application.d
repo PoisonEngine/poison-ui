@@ -139,8 +139,6 @@ class Application {
         _open = true;
 
         window.process();
-
-        // TODO: figure out a way to handle close ...
       }
     }
   }
