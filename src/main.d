@@ -3,28 +3,44 @@ module main;
 /// The entry point.
 private void main(string[] args) {
   try {
+    import poison.ui.fonts;
+    loadFonts("resources\\poison\\fonts");
+    
     import poison.ui.styles;
 
     version (Poison_SharedStyles) {
-      loadStyleSheet("configs\\poison.pss");
+      loadStyleSheet("resources\\poison\\styles\\poison.pss");
     }
-    else version (Poison_Windows) {
-      loadStyleSheet("configs\\poison-win32.pss");
+
+    version (Poison_Win_XP) {
+      loadStyleSheet("resources\\poison\\styles\\win-xp.pss");
+    }
+    else version (Poison_Win_Vista) {
+      loadStyleSheet("resources\\poison\\styles\\win-vista.pss");
+    }
+    else version (Poison_Win_7) {
+      loadStyleSheet("resources\\poison\\styles\\win-7.pss");
+    }
+    else version (Poison_Win_8) {
+      loadStyleSheet("resources\\poison\\styles\\win-8.pss");
+    }
+    else version (Poison_Win_10) {
+      loadStyleSheet("resources\\poison\\styles\\win-10.pss");
     }
     else version (Poison_Linux) {
-      loadStyleSheet("configs\\poison-linux.pss");
+      loadStyleSheet("resources\\poison\\styles\\linux.pss");
     }
     else version (Poison_OSX) {
-      loadStyleSheet("configs\\poison-osx.pss");
+      loadStyleSheet("resources\\poison\\styles\\osx.pss");
     }
     else version (Poison_Android) {
-      loadStyleSheet("configs\\poison-android.pss");
+      loadStyleSheet("resources\\poison\\styles\\android.pss");
     }
     else version (Poison_iOS) {
-      loadStyleSheet("configs\\poison-ios.pss");
+      loadStyleSheet("resources\\poison\\styles\\ios.pss");
     }
     else version (Poison_WindowsPhone) {
-      loadStyleSheet("configs\\poison-wp.pss");
+      loadStyleSheet("resources\\poison\\styles\\poison-wp.pss");
     }
 
     import application;

@@ -1,0 +1,6 @@
+"window": {
+  "background-color": "#eee"
+},
+"window:disabled": {
+  "background-color": "cornflowerBlue"
+}
