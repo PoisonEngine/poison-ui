@@ -63,16 +63,16 @@ Example for styling a window.
 * background-color (Done)
   * value: "R;G;B;A"
   * value: "R;G;B"
-  * value: "#hex" (Not done)
-  * value: "colorName" (Not done)
+  * value: "#hex"
+  * value: "colorName"
 * background-image
   * value: "path"
   * value: "base64:base64_here"
 * foreground-color (Done)
   * value: "R;G;B;A"
   * value: "R;G;B"
-  * value: "#hex" (Not done)
-  * value: "colorName" (Not done)
+  * value: "#hex"
+  * value: "colorName"
 * font
   * value: "name: value|path: value|size: value"
 * font-name
