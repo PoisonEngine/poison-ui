@@ -58,6 +58,9 @@ final class Picture {
   /// The fill paint.
   Paint _fillPaint;
 
+  /// The image buffer.
+  ubyte[] _imageBuffer;
+
   /// The graphics to render onto it.
   PictureGraphics[] _graphics;
 
@@ -66,14 +69,20 @@ final class Picture {
 
   /// Renders the picture.
   void render() {
-    assert(_fileName || _size);
+    assert(_fileName || _imageBuffer || _size);
 
     Image backgroundImage;
     auto drawingImage = new Image();
 
-    if (_fileName) {
+    if (_fileName || _imageBuffer) {
       backgroundImage = new Image();
-      backgroundImage.loadFromFile(_fileName);
+
+      if (_fileName) {
+        backgroundImage.loadFromFile(_fileName);
+      }
+      else {
+        backgroundImage.loadFromMemory(_imageBuffer);
+      }
 
       auto imgSize = backgroundImage.getSize();
       _size = new Size(cast(size_t)imgSize.x, cast(size_t)imgSize.y);
@@ -141,6 +150,34 @@ final class Picture {
   this(Size size, Paint fillPaint) {
     _size = size;
     _fillPaint = fillPaint;
+  }
+
+  /**
+  * Creates a new picture.
+  * Params:
+  *   imageBuffer = The buffer to load the picture from.
+  */
+  this(ubyte[] imageBuffer) {
+    _imageBuffer = imageBuffer;
+  }
+
+  /**
+  * Creates a new picture, copied from another.
+  * Params:
+  *   copyImage = The image to copy.
+  */
+  this(Picture copyImage) {
+    if (copyImage._imageBuffer) {
+      this(copyImage._imageBuffer.dup);
+    }
+    else if (copyImage._fileName) {
+      this(copyImage._fileName);
+    }
+    else {
+      this(copyImage._size, copyImage._fillPaint);
+    }
+
+    _graphics = copyImage._graphics;
   }
 
   /// Clears the graphics.

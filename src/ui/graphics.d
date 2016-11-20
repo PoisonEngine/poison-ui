@@ -5,6 +5,7 @@ import dsfml.system : Vector2f;
 
 import poison.ui.paint;
 import poison.core : Size, Point;
+import poison.ui.picture;
 
 /// Graphics wrapper for components.
 class Graphics {
@@ -18,6 +19,9 @@ class Graphics {
   /// The low-level background rectangle.
   RectangleShape _backgroundRect;
 
+  /// The background picture.
+  Picture _backgroundPicture;
+
   /// The size.
   Size _size;
 
@@ -28,8 +32,8 @@ class Graphics {
   final:
   /// Creates a new graphics wrapper.
   this() {
-    _backgroundPaint = paintFromRGBA(0xcc, 0xcc, 0xcc);
-    _foregroundPaint = paintFromRGBA(0x00, 0x00, 0x00, 0x00);
+    _backgroundPaint = transparent;
+    _foregroundPaint = transparent;
 
     _size = new Size(0,0);
     _position = new Point(0,0);
@@ -58,6 +62,14 @@ class Graphics {
 
     /// Gets the low-level background rectangle.
     RectangleShape backgroundRect() { return _backgroundRect; }
+
+    /// Gets the background picture.
+    Picture backgroundPicture() { return _backgroundPicture; }
+
+    /// Sets the background picture.
+    void backgroundPicture(Picture newBackgroundPicture) {
+      _backgroundPicture = newBackgroundPicture;
+    }
   }
 
   package(poison):
@@ -68,6 +80,10 @@ class Graphics {
 
       if (_backgroundRect) {
         _backgroundRect.position = Vector2f(cast(float)_position.x, cast(float)_position.y);
+      }
+
+      if (_backgroundPicture) {
+        _backgroundPicture.position = _position;
       }
     }
   }

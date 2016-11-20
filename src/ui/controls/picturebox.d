@@ -8,10 +8,6 @@ import poison.core : Point, Size;
 
 /// A container for a picture.
 class PictureBox : Container {
-  private:
-  /// The associated picture.
-  Picture _picture;
-
   public:
   /**
   * Creates a new picture box.
@@ -38,43 +34,24 @@ class PictureBox : Container {
     assert(picture !is null);
     super(name, layers);
 
-    _picture = picture;
-    size = _picture.size;
+    super.graphics.backgroundPicture = picture;
+    size = super.graphics.backgroundPicture.size;
 
     addSelector("picturebox");
   }
 
   @property {
     /// Gets the picture.
-    Picture picture() { return _picture; }
+    Picture picture() { return super.graphics.backgroundPicture; }
 
     /// Gets the position of the picturebox.
     override Point position() { return super.position; }
 
     /// Sets the position of the picturebox.
     override void position(Point newPosition) {
-      _picture.position = newPosition;
+      super.graphics.backgroundPicture.position = newPosition;
 
       super.position = newPosition;
-    }
-  }
-
-  /**
-  * Draws the picture box.
-  * Params:
-  *   window =  The window to draw the picture box onto.
-  */
-  override void draw(RenderWindow window) {
-    super.draw(window);
-
-    if (_picture) {
-      if (_picture.backgroundSprite) {
-        window.draw(_picture.backgroundSprite);
-      }
-
-      if (_picture.drawingSprite) {
-        window.draw(_picture.drawingSprite);
-      }
     }
   }
 }

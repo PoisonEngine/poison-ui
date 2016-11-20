@@ -8,6 +8,7 @@
 	"copyright": "Copyright © 2016 Poison Engine",
 	"targetType": "sourceLibrary",
 	"sourcePaths": ["src"],
+	"copyFiles": ["resources"],
 	"dependencies": {
 		"dsfml": {
 			"version": "~>2.1.1"

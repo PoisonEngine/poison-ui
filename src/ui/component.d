@@ -8,6 +8,7 @@ import poison.core : ActionArgs, Point, Size, EventArgs, ChangeEventArgs, execut
 import poison.ui.window;
 import poison.ui.graphics;
 import poison.ui.paint;
+import poison.ui.picture;
 
 public import dsfml.graphics : RenderWindow;
 
@@ -98,6 +99,18 @@ class Component : Space {
   */
   void draw(RenderWindow window) {
     window.draw(_graphics.backgroundRect);
+
+    auto picture = _graphics.backgroundPicture;
+
+    if (picture) {
+      if (picture.backgroundSprite) {
+        window.draw(picture.backgroundSprite);
+      }
+
+      if (picture.drawingSprite) {
+        window.draw(picture.drawingSprite);
+      }
+    }
   }
 
   public:
@@ -262,6 +275,11 @@ class Component : Space {
   }
 
   protected:
+  @property {
+    /// Gets the graphics of the component.
+    Graphics graphics() { return _graphics; }
+  }
+
   /**
   * Processes the component during application cycles.
   * Params:
@@ -274,6 +292,7 @@ class Component : Space {
   }
 
   private:
+  /// Updates the selectors.
   void updateSelectors() {
     auto prefix = (_disabled ? ":disabled" : ":enabled");
 
@@ -308,6 +327,12 @@ class Component : Space {
         auto styleEntry = getStyleEntry(selector);
 
         if (styleEntry) {
+          if (styleEntry.backgroundPicture) {
+            _graphics.backgroundPicture = new Picture(styleEntry.backgroundPicture);
+            _graphics.position = super.position;
+            _graphics.backgroundPicture.finalize();
+          }
+
           _graphics.backgroundPaint = styleEntry.backgroundPaint;
           _graphics.foregroundPaint = styleEntry.foregroundPaint;
         }
@@ -328,8 +353,5 @@ class Component : Space {
     void parentWindow(Window newParentWindow) {
       _parentWindow = newParentWindow;
     }
-
-    /// Gets the graphics of the component.
-    Graphics graphics() { return _graphics; }
   }
 }
