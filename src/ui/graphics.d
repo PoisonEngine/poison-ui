@@ -6,6 +6,7 @@ import dsfml.system : Vector2f;
 import poison.ui.paint;
 import poison.core : Size, Point;
 import poison.ui.picture;
+import poison.ui.fonts;
 
 /// Graphics wrapper for components.
 class Graphics {
@@ -28,6 +29,12 @@ class Graphics {
   /// The position.
   Point _position;
 
+  /// The font.
+  Font _font;
+
+  /// The font size.
+  uint _fontSize;
+
   public:
   final:
   /// Creates a new graphics wrapper.
@@ -37,6 +44,8 @@ class Graphics {
 
     _size = new Size(0,0);
     _position = new Point(0,0);
+
+    _fontSize = 13;
   }
 
   @property {
@@ -69,6 +78,22 @@ class Graphics {
     /// Sets the background picture.
     void backgroundPicture(Picture newBackgroundPicture) {
       _backgroundPicture = newBackgroundPicture;
+    }
+
+    /// Gets the font.
+    Font font() { return _font; }
+
+    /// Sets the font.
+    void font(Font newFont) {
+      _font = newFont;
+    }
+
+    /// Gets the font size.
+    uint fontSize() { return _fontSize; }
+
+    /// Sets the font size.
+    void fontSize(uint newFontSize) {
+      _fontSize = newFontSize;
     }
   }
 

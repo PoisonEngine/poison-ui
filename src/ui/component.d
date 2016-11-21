@@ -335,6 +335,9 @@ class Component : Space {
 
           _graphics.backgroundPaint = styleEntry.backgroundPaint;
           _graphics.foregroundPaint = styleEntry.foregroundPaint;
+
+          _graphics.font = styleEntry.font;
+          _graphics.fontSize = styleEntry.fontSize;
         }
       }
     }
