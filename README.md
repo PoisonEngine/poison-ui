@@ -75,8 +75,8 @@ Example for styling a window.
   * value: "colorName"
 * font
   * value: "name: value|path: value|size: value"
-* font-name
-  * value: "name"
+* font-name (Requires the font to be pre-loaded, else use font-path with the name and font-style prefix ("i", "b" or "z")
+  * value: "name;style"
 * font-path
   * value: "path"
 * font-size
