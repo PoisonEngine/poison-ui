@@ -11,6 +11,7 @@ import std.base64 : Base64;
 import poison.ui.graphics;
 import poison.ui.paint;
 import poison.ui.picture;
+import poison.ui.fonts;
 
 /// Table of styles.
 private Graphics[string] _styles;
@@ -65,25 +66,19 @@ void loadStyles(string jsonText) {
 
         final switch (styleName) {
           case "background": {
-            auto groups = value.split("|");
-
-            foreach (group; groups) {
-              auto separatorIndex = countUntil(group, ":");
-              auto propertyName = group[0 .. separatorIndex];
-              auto propertyValue = group[separatorIndex + 1 .. $];
-
+            handleGroups(graphics, value, (gfx, propertyName, propertyValue) {
               final switch (propertyName) {
                 case "color": {
-                  graphics.backgroundPaint = handlePaintInput(propertyValue);
+                  gfx.backgroundPaint = handlePaintInput(propertyValue);
                   break;
                 }
 
                 case "image": {
-                  graphics.backgroundPicture = handleImageInput(propertyValue);
+                  gfx.backgroundPicture = handleImageInput(propertyValue);
                   break;
                 }
               }
-            }
+            });
             break;
           }
 
@@ -100,6 +95,42 @@ void loadStyles(string jsonText) {
           case "foreground-color": {
             graphics.foregroundPaint = handlePaintInput(value);
             break;
+          }
+
+          case "font": {
+            handleGroups(graphics, value, (gfx, propertyName, propertyValue) {
+              final switch (propertyName) {
+                case "name": {
+                  gfx.font = handleFontInput(propertyValue);
+                  break;
+                }
+
+                case "path": {
+                  gfx.font = loadFont(propertyValue);
+                  break;
+                }
+
+                case "size": {
+                  gfx.fontSize = to!uint(propertyValue);
+                  break;
+                }
+              }
+            });
+            break;
+          }
+
+          case "font-name": {
+            graphics.font = handleFontInput(value);
+            break;
+          }
+
+          case "font-path": {
+            graphics.font = loadFont(value);
+            break;
+          }
+
+          case "font-size": {
+            graphics.fontSize = to!uint(value);
           }
         }
       }
@@ -120,6 +151,48 @@ void loadStyles(string jsonText) {
 }
 
 private:
+/**
+* Handles group values.
+* Params:
+*   graphics =  The graphics to handle values for.
+*   value =     The value to parse groups from.
+*   predicate = A predicate to mutate the graphics.
+*/
+void handleGroups(Graphics graphics, string value, void delegate(Graphics, string, string) predicate) {
+  assert(predicate !is null);
+
+  auto groups = value.split("|");
+
+  foreach (group; groups) {
+    auto separatorIndex = countUntil(group, ":");
+    auto propertyName = group[0 .. separatorIndex];
+    auto propertyValue = group[separatorIndex + 1 .. $];
+
+    predicate(graphics, propertyName, propertyValue);
+  }
+}
+
+/**
+* Handles group values.
+* Params:
+*   graphics =  The graphics to handle values for.
+*   value =     The value to parse groups from.
+*   predicate = A predicate to mutate the graphics.
+*/
+void handleGroups(Graphics graphics, string value, void function(Graphics, string, string) predicate) {
+  assert(predicate !is null);
+
+  auto groups = value.split("|");
+
+  foreach (group; groups) {
+    auto separatorIndex = countUntil(group, ":");
+    auto propertyName = group[0 .. separatorIndex];
+    auto propertyValue = group[separatorIndex + 1 .. $];
+
+    predicate(graphics, propertyName, propertyValue);
+  }
+}
+
 /**
 * Handles paint input.
 * Params:
@@ -197,4 +270,20 @@ Picture handleImageInput(string value) {
       }
     }
   }
+}
+
+/**
+* Handles font input.
+* Params:
+*   value = The font input value.
+*/
+Font handleFontInput(string value) {
+  auto values = value.split(";");
+  auto fontName = values[0];
+
+  if (values.length == 2) {
+    return retrieveFont(fontName, to!FontStyle(values[1]));
+  }
+
+  return retrieveFont(fontName, FontStyle.normal);
 }
