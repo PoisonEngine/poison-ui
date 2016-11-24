@@ -58,14 +58,14 @@ Example for styling a window.
 
 ### Styling Properties (";" is a value separator :: "|" is a group separator)
 
-* background
+* background (Done)
   * value: "color: value|image: value"
 * background-color (Done)
   * value: "R;G;B;A"
   * value: "R;G;B"
   * value: "#hex"
   * value: "colorName"
-* background-image
+* background-image (Done)
   * value: "path"
   * value: "base64:base64_here"
 * foreground-color (Done)
@@ -73,13 +73,13 @@ Example for styling a window.
   * value: "R;G;B"
   * value: "#hex"
   * value: "colorName"
-* font
+* font (Done)
   * value: "name: value|path: value|size: value"
-* font-name (Font's must be loaded upfront for font-name to work.)
+* font-name (Font's must be loaded upfront for font-name to work.) (Done)
   * value: "name;style"
-* font-path (Path can also be a font-name with/without the style suffixes ("i", "b" or "z"), but most be loaded upfront to work.)
+* font-path (Path can also be a font-name with/without the style suffixes ("i", "b" or "z"), but most be loaded upfront to work.) (Done)
   * value: "path"
-* font-size
+* font-size (Done)
   * value: "size"
 * paint (Array of values)
   * value: "position: value|size: value|color: value|gradient-hoz: value (Only fromColor & toColor)|gradient-ver: value (Only fromColor & toColor)"
