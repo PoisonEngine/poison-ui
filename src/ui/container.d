@@ -83,8 +83,10 @@ class Container : Component {
 
       child.layer = cast(ptrdiff_t)layer;
       child.parentWindow = parentWindow;
+      child.parentContainer = this;
       parentWindow._windowComponents[child.id] = child;
 
+      child.renderSub();
       child.show();
     });
   }
@@ -125,6 +127,7 @@ class Container : Component {
       child.layer = -1;
       child.parentWindow._windowComponents.remove(child.id);
       child.parentWindow = null;
+      child.parentContainer = null;
     });
   }
 

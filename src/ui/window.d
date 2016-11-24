@@ -111,8 +111,6 @@ class Window : Container {
   /// Shows the window.
   override void show() {
     if (!_window) {
-      import std.stdio;
-      writefln("title: '%s'", title);
       _window = new RenderWindow(_videoMode, title, (WindowStyle.Titlebar | WindowStyle.Resize | WindowStyle.Close), _context);
 
       if (_fps) {

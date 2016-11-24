@@ -9,6 +9,7 @@ import poison.ui.window;
 import poison.ui.graphics;
 import poison.ui.paint;
 import poison.ui.picture;
+import poison.ui.container;
 
 public import dsfml.graphics : RenderWindow;
 
@@ -41,6 +42,9 @@ class Component : Space {
 
   /// The parent window.
   Window _parentWindow;
+
+  /// The parent container.
+  Container _parentContainer;
 
   /// The graphics.
   Graphics _graphics;
@@ -98,11 +102,13 @@ class Component : Space {
   *   window =  The window to draw the component to.
   */
   void draw(RenderWindow window) {
-    window.draw(_graphics.backgroundRect);
+    if (_graphics.displayableBackgroundRect) {
+      window.draw(_graphics.backgroundRect);
+    }
 
     auto picture = _graphics.backgroundPicture;
 
-    if (picture) {
+    if (picture && _graphics.displayableBackgroundPicture) {
       if (picture.backgroundSprite) {
         window.draw(picture.backgroundSprite);
       }
@@ -181,6 +187,7 @@ class Component : Space {
         fireEvent("innerText", new ChangeEventArgs!dstring(oldInnerText, _innerText));
 
         render();
+        renderSub();
       });
     }
 
@@ -208,6 +215,7 @@ class Component : Space {
         super.position = newPoint;
 
         render();
+        renderSub();
       });
     }
 
@@ -220,6 +228,7 @@ class Component : Space {
         super.size = newSize;
 
         render();
+        renderSub();
       });
     }
 
@@ -229,6 +238,11 @@ class Component : Space {
     /// Gets the parent window of the component.
     Window parentWindow() {
       return _parentWindow;
+    }
+
+    /// Gets the parent container of the component.
+    Container parentContainer() {
+      return _parentContainer;
     }
   }
 
@@ -274,6 +288,28 @@ class Component : Space {
     updateSelectors();
   }
 
+  /**
+  * Checks whether the space intersects with a point.
+  * Params:
+  *   p = The point to check for intersection with.
+  */
+  override bool intersect(Point p) {
+    auto pIntersects = _parentContainer ? _parentContainer.intersect(p) : true;
+
+    return pIntersects && super.intersect(p);
+	}
+
+  /**
+  * Checks whether the space intersects with another space.
+  * Params:
+  *   target = The space to check for intersection with.
+  */
+  override bool intersect(Space target) {
+    auto pIntersects = _parentContainer ? _parentContainer.intersect(target) : true;
+
+    return pIntersects && super.intersect(target);
+   }
+
   protected:
   @property {
     /// Gets the graphics of the component.
@@ -309,6 +345,13 @@ class Component : Space {
   }
 
   package(poison):
+  /// Renders the sub rectangles for the graphics of the component.
+  void renderSub() {
+    if (_graphics && _parentContainer) {
+      _graphics.renderSub(_parentContainer.position, _parentContainer.size);
+    }
+  }
+
   /**
   * Processes the component during application cycles.
   * Params:
@@ -341,6 +384,8 @@ class Component : Space {
         }
       }
     }
+
+    renderSub();
   }
 
   @property {
@@ -355,6 +400,11 @@ class Component : Space {
     /// Sets the parent window of the component.
     void parentWindow(Window newParentWindow) {
       _parentWindow = newParentWindow;
+    }
+
+    /// Sets the parent container of the component.
+    void parentContainer(Container newParentContainer) {
+      _parentContainer = newParentContainer;
     }
   }
 }
