@@ -1,0 +1,382 @@
+<html>
+<head>
+
+    <style type="text/css">
+      body {
+        font-family: verdana, tahoma;
+      }
+
+      a {
+        color: #666;
+      }
+
+      .module-description-container: {
+        background-color: #eee;
+        border: 1px solid #ccc;
+        font-style: italics;
+      }
+
+      .import-table {
+        background-color: #eee;
+        border: 1px solid #ccc;
+      }
+
+      .import {
+        font-weight: bold;
+      }
+
+      .link-symbol-outer {
+      }
+
+      .link-symbol-inner {
+        font-size: 20px;
+      }
+
+      .link-symbol-inner-child {
+        font-weight: bold;
+      }
+
+      .symbol {
+        border: 1px solid #ccc;
+        background-color: #eee;
+      }
+
+      .symbol hr {
+        height: 1px;
+        color: #ccc;
+        background-color: #ccc;
+        border: none;
+      }
+
+      .symbol-description {
+
+      }
+
+      .symbol-params {
+        background-color: #999;
+      }
+
+      .symbol-param {
+        border: 1px solid #333;
+      }
+
+      .symbol-docs {
+
+      }
+
+      .symbol-docs-description {
+
+      }
+    </style>
+  
+<title>poison.ui.picture</title>
+</head>
+<body>
+<h1>poison.ui.picture</h2>
+<a href="https://github.com/PoisonEngine/poison-ui/blob/master/src/ui/picture.d">Source</a>
+<div class="module-description-container">
+<p>Module for picture manipulation.
+
+</p>
+<h4 class="symbol-docs">Authors:</h4>
+&nbsp;&nbsp;<i class="symbol-docs-description">Jacob Jensen</i>
+<h4 class="symbol-docs">License:</h4>
+&nbsp;&nbsp;<a href="https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE" class="symbol-docs-description">https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE</a>
+</div>
+<br>
+<div class="import-table">
+<h3>Imports</h3>
+<a class="import" href="http://dsfml.com/doc.html">dsfml.graphics : Image, Texture, RenderWindow</a><br><br>
+<a class="import" href="poison_ui_paint.html">poison.ui.paint</a><br><br>
+<a class="import" href="poison_ui_sprite.html">poison.ui.sprite</a><br><br>
+<a class="import" href="poison_core.html">poison.core : Size, Point</a><br><br>
+</div>
+<h4>public:</h4>
+<div class="link-symbol-outer">
+<a href="#ZmluYWwgY2xhc3MgUGljdHVyZQ==" class="link-symbol-inner">final class Picture</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhzdHJpbmcgaW1hZ2VGaWxlKTs=" class="link-symbol-inner-child">this(string imageFile);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhTaXplIHNpemUsIFBhaW50IGZpbGxQYWludCk7" class="link-symbol-inner-child">this(Size size, Paint fillPaint);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyh1Ynl0ZVtdIGltYWdlQnVmZmVyKTs=" class="link-symbol-inner-child">this(ubyte[] imageBuffer);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhQaWN0dXJlIGNvcHlJbWFnZSk7" class="link-symbol-inner-child">this(Picture copyImage);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjbGVhckdyYXBoaWNzKCk7" class="link-symbol-inner-child">void clearGraphics();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBkcmF3KFBvaW50IHBvc2l0aW9uLCBTaXplIHNpemUsIFBhaW50IHBhaW50KTs=" class="link-symbol-inner-child">void draw(Point position, Size size, Paint paint);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBncmFkaWVudEhvcml6b250YWwoUG9pbnQgcG9zaXRpb24sIFNpemUgc2l6ZSwgUGFpbnQgZnJvbSwgUGFpbnQgdG8sIHVieXRlIGEgPSAweGZmKTs=" class="link-symbol-inner-child">void gradientHorizontal(Point position, Size size, Paint from, Paint to, ubyte a = 0xff);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBncmFkaWVudFZlcnRpY2FsKFBvaW50IHBvc2l0aW9uLCBTaXplIHNpemUsIFBhaW50IGZyb20sIFBhaW50IHRvLCB1Ynl0ZSBhID0gMHhmZik7" class="link-symbol-inner-child">void gradientVertical(Point position, Size size, Paint from, Paint to, ubyte a = 0xff);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCByZXNpemUoU2l6ZSBuZXdTaXplKTs=" class="link-symbol-inner-child">void resize(Size newSize);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBmaW5hbGl6ZSgpOw==" class="link-symbol-inner-child">void finalize();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#U2l6ZSBzaXplKCk7" class="link-symbol-inner-child">@property Size size();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#c3RyaW5nIGZpbGVOYW1lKCk7" class="link-symbol-inner-child">@property string fileName();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBmaWxlTmFtZShzdHJpbmcgbmV3RmlsZU5hbWUpOw==" class="link-symbol-inner-child">@property void fileName(string newFileName);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dWJ5dGVbXSBpbWFnZUJ1ZmZlcigpOw==" class="link-symbol-inner-child">@property ubyte[] imageBuffer();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBpbWFnZUJ1ZmZlcih1Ynl0ZVtdIGltYWdlQnVmZmVyKTs=" class="link-symbol-inner-child">@property void imageBuffer(ubyte[] imageBuffer);</a><br>
+</div>
+<br>
+<br>
+<div id="ZmluYWwgY2xhc3MgUGljdHVyZQ==" class="symbol" style="margin-left: 0px; padding: 6px;">
+<h3>public final class Picture</h3>
+<hr>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public:</h4>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhzdHJpbmcgaW1hZ2VGaWxlKTs=" class="link-symbol-inner-child">this(string imageFile);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhTaXplIHNpemUsIFBhaW50IGZpbGxQYWludCk7" class="link-symbol-inner-child">this(Size size, Paint fillPaint);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyh1Ynl0ZVtdIGltYWdlQnVmZmVyKTs=" class="link-symbol-inner-child">this(ubyte[] imageBuffer);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhQaWN0dXJlIGNvcHlJbWFnZSk7" class="link-symbol-inner-child">this(Picture copyImage);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjbGVhckdyYXBoaWNzKCk7" class="link-symbol-inner-child">void clearGraphics();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBkcmF3KFBvaW50IHBvc2l0aW9uLCBTaXplIHNpemUsIFBhaW50IHBhaW50KTs=" class="link-symbol-inner-child">void draw(Point position, Size size, Paint paint);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBncmFkaWVudEhvcml6b250YWwoUG9pbnQgcG9zaXRpb24sIFNpemUgc2l6ZSwgUGFpbnQgZnJvbSwgUGFpbnQgdG8sIHVieXRlIGEgPSAweGZmKTs=" class="link-symbol-inner-child">void gradientHorizontal(Point position, Size size, Paint from, Paint to, ubyte a = 0xff);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBncmFkaWVudFZlcnRpY2FsKFBvaW50IHBvc2l0aW9uLCBTaXplIHNpemUsIFBhaW50IGZyb20sIFBhaW50IHRvLCB1Ynl0ZSBhID0gMHhmZik7" class="link-symbol-inner-child">void gradientVertical(Point position, Size size, Paint from, Paint to, ubyte a = 0xff);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCByZXNpemUoU2l6ZSBuZXdTaXplKTs=" class="link-symbol-inner-child">void resize(Size newSize);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBmaW5hbGl6ZSgpOw==" class="link-symbol-inner-child">void finalize();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#U2l6ZSBzaXplKCk7" class="link-symbol-inner-child">@property Size size();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#c3RyaW5nIGZpbGVOYW1lKCk7" class="link-symbol-inner-child">@property string fileName();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBmaWxlTmFtZShzdHJpbmcgbmV3RmlsZU5hbWUpOw==" class="link-symbol-inner-child">@property void fileName(string newFileName);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dWJ5dGVbXSBpbWFnZUJ1ZmZlcigpOw==" class="link-symbol-inner-child">@property ubyte[] imageBuffer();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBpbWFnZUJ1ZmZlcih1Ynl0ZVtdIGltYWdlQnVmZmVyKTs=" class="link-symbol-inner-child">@property void imageBuffer(ubyte[] imageBuffer);</a><br>
+</div>
+<br>
+<br>
+<p class="symbol-description">A picture for image manipulation.<p>
+</div>
+<br>
+<div id="dGhpcyhzdHJpbmcgaW1hZ2VGaWxlKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public this(string imageFile);</h3>
+<hr>
+<p class="symbol-description">Creates a new picture.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">imageFile</td><td class="symbol-param" style="padding: 6px;">The file for an image to load onto the picture.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dGhpcyhTaXplIHNpemUsIFBhaW50IGZpbGxQYWludCk7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public this(<a href="poison_core_vector.html#cHVibGljIGFsaWFzIFNpemUgPSBTaXplMmRWZWN0b3Ihc2l6ZV90Ow==">Size</a> size, <a href="poison_ui_paint.html#c3RydWN0IFBhaW50">Paint</a> fillPaint);</h3>
+<hr>
+<p class="symbol-description">Creates a new picture.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">size</td><td class="symbol-param" style="padding: 6px;">The size of the picture.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">fillPaint</td><td class="symbol-param" style="padding: 6px;">The initialization paint.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dGhpcyh1Ynl0ZVtdIGltYWdlQnVmZmVyKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public this(ubyte[] imageBuffer);</h3>
+<hr>
+<p class="symbol-description">Creates a new picture.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">imageBuffer</td><td class="symbol-param" style="padding: 6px;">The buffer to load the picture from.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dGhpcyhQaWN0dXJlIGNvcHlJbWFnZSk7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public this(<a href="poison_ui_picture.html#ZmluYWwgY2xhc3MgUGljdHVyZQ==">Picture</a> copyImage);</h3>
+<hr>
+<p class="symbol-description">Creates a new picture, copied from another.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">copyImage</td><td class="symbol-param" style="padding: 6px;">The image to copy.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCBjbGVhckdyYXBoaWNzKCk7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void clearGraphics();</h3>
+<hr>
+<p class="symbol-description">Clears the graphics.<p>
+</div>
+<br>
+<div id="dm9pZCBkcmF3KFBvaW50IHBvc2l0aW9uLCBTaXplIHNpemUsIFBhaW50IHBhaW50KTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void draw(<a href="poison_core_vector.html#cHVibGljIGFsaWFzIFBvaW50ID0gUG9pbnQyZFZlY3RvciFwdHJkaWZmX3Q7">Point</a> position, <a href="poison_core_vector.html#cHVibGljIGFsaWFzIFNpemUgPSBTaXplMmRWZWN0b3Ihc2l6ZV90Ow==">Size</a> size, <a href="poison_ui_paint.html#c3RydWN0IFBhaW50">Paint</a> paint);</h3>
+<hr>
+<p class="symbol-description">Draws paint onto the picture.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">position</td><td class="symbol-param" style="padding: 6px;">The position within the picture to draw the paint.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">size</td><td class="symbol-param" style="padding: 6px;">The size of the paint.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">paint</td><td class="symbol-param" style="padding: 6px;">The paint to draw with.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCBncmFkaWVudEhvcml6b250YWwoUG9pbnQgcG9zaXRpb24sIFNpemUgc2l6ZSwgUGFpbnQgZnJvbSwgUGFpbnQgdG8sIHVieXRlIGEgPSAweGZmKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void gradientHorizontal(<a href="poison_core_vector.html#cHVibGljIGFsaWFzIFBvaW50ID0gUG9pbnQyZFZlY3RvciFwdHJkaWZmX3Q7">Point</a> position, <a href="poison_core_vector.html#cHVibGljIGFsaWFzIFNpemUgPSBTaXplMmRWZWN0b3Ihc2l6ZV90Ow==">Size</a> size, <a href="poison_ui_paint.html#c3RydWN0IFBhaW50">Paint</a> from, <a href="poison_ui_paint.html#c3RydWN0IFBhaW50">Paint</a> to, ubyte a = 0xff);</h3>
+<hr>
+<p class="symbol-description">Paints a horizontal gradient on the picture.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">position</td><td class="symbol-param" style="padding: 6px;">The position within the picture to paint the gradient.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">size</td><td class="symbol-param" style="padding: 6px;">The size of the gradient.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">from</td><td class="symbol-param" style="padding: 6px;">The paint to gradient from.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">to</td><td class="symbol-param" style="padding: 6px;">The paint to gradient to.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">a</td><td class="symbol-param" style="padding: 6px;">The alpha channel of the gradient.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCBncmFkaWVudFZlcnRpY2FsKFBvaW50IHBvc2l0aW9uLCBTaXplIHNpemUsIFBhaW50IGZyb20sIFBhaW50IHRvLCB1Ynl0ZSBhID0gMHhmZik7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void gradientVertical(<a href="poison_core_vector.html#cHVibGljIGFsaWFzIFBvaW50ID0gUG9pbnQyZFZlY3RvciFwdHJkaWZmX3Q7">Point</a> position, <a href="poison_core_vector.html#cHVibGljIGFsaWFzIFNpemUgPSBTaXplMmRWZWN0b3Ihc2l6ZV90Ow==">Size</a> size, <a href="poison_ui_paint.html#c3RydWN0IFBhaW50">Paint</a> from, <a href="poison_ui_paint.html#c3RydWN0IFBhaW50">Paint</a> to, ubyte a = 0xff);</h3>
+<hr>
+<p class="symbol-description">Paints a vertical gradient on the picture.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">position</td><td class="symbol-param" style="padding: 6px;">The position within the picture to paint the gradient.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">size</td><td class="symbol-param" style="padding: 6px;">The size of the gradient.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">from</td><td class="symbol-param" style="padding: 6px;">The paint to gradient from.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">to</td><td class="symbol-param" style="padding: 6px;">The paint to gradient to.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">a</td><td class="symbol-param" style="padding: 6px;">The alpha channel of the gradient.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCByZXNpemUoU2l6ZSBuZXdTaXplKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void resize(<a href="poison_core_vector.html#cHVibGljIGFsaWFzIFNpemUgPSBTaXplMmRWZWN0b3Ihc2l6ZV90Ow==">Size</a> newSize);</h3>
+<hr>
+<p class="symbol-description">Resizes the picture.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">newSize</td><td class="symbol-param" style="padding: 6px;">Resizes the picture.</td>
+</tr>
+</table>
+<h4 class="symbol-docs">Bug:</h4>
+&nbsp;&nbsp;<i class="symbol-docs-description">Currently only work for pictures with no image file.The fix is to use scale().</i>
+</div>
+<br>
+<div id="dm9pZCBmaW5hbGl6ZSgpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void finalize();</h3>
+<hr>
+<p class="symbol-description">Finalizes the picture and its graphics.<p>
+</div>
+<br>
+<div id="U2l6ZSBzaXplKCk7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public @property <a href="poison_core_vector.html#cHVibGljIGFsaWFzIFNpemUgPSBTaXplMmRWZWN0b3Ihc2l6ZV90Ow==">Size</a> size();</h3>
+<hr>
+<p class="symbol-description">Gets the size of the picture.<p>
+</div>
+<br>
+<div id="c3RyaW5nIGZpbGVOYW1lKCk7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public @property string fileName();</h3>
+<hr>
+<p class="symbol-description">Gets the file name.<p>
+</div>
+<br>
+<div id="dm9pZCBmaWxlTmFtZShzdHJpbmcgbmV3RmlsZU5hbWUpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public @property void fileName(string newFileName);</h3>
+<hr>
+<p class="symbol-description">Sets the file name.<p>
+</div>
+<br>
+<div id="dWJ5dGVbXSBpbWFnZUJ1ZmZlcigpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public @property ubyte[] imageBuffer();</h3>
+<hr>
+<p class="symbol-description">Gets the image buffer.<p>
+</div>
+<br>
+<div id="dm9pZCBpbWFnZUJ1ZmZlcih1Ynl0ZVtdIGltYWdlQnVmZmVyKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public @property void imageBuffer(ubyte[] imageBuffer);</h3>
+<hr>
+<p class="symbol-description">Sets the image buffer.<p>
+</div>
+<br>
+<i>Generated by venom - Poison Engine's Documentation Generator</i>
+</body>
+</html>

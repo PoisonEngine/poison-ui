@@ -1,0 +1,317 @@
+<html>
+<head>
+
+    <style type="text/css">
+      body {
+        font-family: verdana, tahoma;
+      }
+
+      a {
+        color: #666;
+      }
+
+      .module-description-container: {
+        background-color: #eee;
+        border: 1px solid #ccc;
+        font-style: italics;
+      }
+
+      .import-table {
+        background-color: #eee;
+        border: 1px solid #ccc;
+      }
+
+      .import {
+        font-weight: bold;
+      }
+
+      .link-symbol-outer {
+      }
+
+      .link-symbol-inner {
+        font-size: 20px;
+      }
+
+      .link-symbol-inner-child {
+        font-weight: bold;
+      }
+
+      .symbol {
+        border: 1px solid #ccc;
+        background-color: #eee;
+      }
+
+      .symbol hr {
+        height: 1px;
+        color: #ccc;
+        background-color: #ccc;
+        border: none;
+      }
+
+      .symbol-description {
+
+      }
+
+      .symbol-params {
+        background-color: #999;
+      }
+
+      .symbol-param {
+        border: 1px solid #333;
+      }
+
+      .symbol-docs {
+
+      }
+
+      .symbol-docs-description {
+
+      }
+    </style>
+  
+<title>poison.ui.container</title>
+</head>
+<body>
+<h1>poison.ui.container</h2>
+<a href="https://github.com/PoisonEngine/poison-ui/blob/master/src/ui/container.d">Source</a>
+<div class="module-description-container">
+<p>Module for a container.
+
+</p>
+<h4 class="symbol-docs">Authors:</h4>
+&nbsp;&nbsp;<i class="symbol-docs-description">Jacob Jensen</i>
+<h4 class="symbol-docs">License:</h4>
+&nbsp;&nbsp;<a href="https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE" class="symbol-docs-description">https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE</a>
+</div>
+<br>
+<div class="import-table">
+<h3>Imports</h3>
+<a class="import" href="https://dlang.org/phobos/std_algorithm.html">std.algorithm : filter</a><br><br>
+<a class="import" href="https://dlang.org/phobos/std_array.html">std.array : array</a><br><br>
+<a class="import" href="http://dsfml.com/doc.html">public dsfml.graphics : RenderWindow</a><br><br>
+<a class="import" href="poison_ui_component.html">poison.ui.component</a><br><br>
+<a class="import" href="poison_core.html">poison.core : Size, Point, ActionArgs, executeUI</a><br><br>
+</div>
+<h4>public:</h4>
+<div class="link-symbol-outer">
+<a href="#Y2xhc3MgQ29udGFpbmVyIDogQ29tcG9uZW50" class="link-symbol-inner">class Container : Component</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhzdHJpbmcgbmFtZSwgU2l6ZSBpbml0aWFsU2l6ZSwgc2l6ZV90IGxheWVycyk7" class="link-symbol-inner-child">this(string name, Size initialSize, size_t layers);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhzdHJpbmcgbmFtZSwgc2l6ZV90IGxheWVycyk7" class="link-symbol-inner-child">this(string name, size_t layers);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#b3ZlcnJpZGUgYm9vbCBkaXNhYmxlZCgpOw==" class="link-symbol-inner-child">@property override bool disabled();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#b3ZlcnJpZGUgdm9pZCBkaXNhYmxlZChib29sIGlzRGlzYWJsZWQpOw==" class="link-symbol-inner-child">@property override void disabled(bool isDisabled);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBhZGQoQ29tcG9uZW50IGNoaWxkLCBzaXplX3QgbGF5ZXIpOw==" class="link-symbol-inner-child">void add(Component child, size_t layer);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBhZGQoQ29tcG9uZW50W10gY29tcG9uZW50cywgc2l6ZV90IGxheWVyKTs=" class="link-symbol-inner-child">void add(Component[] components, size_t layer);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCByZW1vdmUoQ29tcG9uZW50IGNoaWxkKTs=" class="link-symbol-inner-child">void remove(Component child);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCByZW1vdmUoc3RyaW5nIG5hbWUpOw==" class="link-symbol-inner-child">void remove(string name);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjbGVhcigpOw==" class="link-symbol-inner-child">void clear();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjbGVhcihzaXplX3QgbGF5ZXIpOw==" class="link-symbol-inner-child">void clear(size_t layer);</a><br>
+</div>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protected:</h4>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#b3ZlcnJpZGUgdm9pZCBwcm9jZXNzKFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="link-symbol-inner-child">override void process(RenderWindow window);</a><br>
+</div>
+<br>
+<br>
+<div id="Y2xhc3MgQ29udGFpbmVyIDogQ29tcG9uZW50" class="symbol" style="margin-left: 0px; padding: 6px;">
+<h3>public class <a href="poison_ui_container.html#Y2xhc3MgQ29udGFpbmVyIDogQ29tcG9uZW50">Container</a> : <a href="poison_ui_component.html#Y2xhc3MgQ29tcG9uZW50IDogU3BhY2U=">Component</a></h3>
+<hr>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public:</h4>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhzdHJpbmcgbmFtZSwgU2l6ZSBpbml0aWFsU2l6ZSwgc2l6ZV90IGxheWVycyk7" class="link-symbol-inner-child">this(string name, Size initialSize, size_t layers);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhzdHJpbmcgbmFtZSwgc2l6ZV90IGxheWVycyk7" class="link-symbol-inner-child">this(string name, size_t layers);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#b3ZlcnJpZGUgYm9vbCBkaXNhYmxlZCgpOw==" class="link-symbol-inner-child">@property override bool disabled();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#b3ZlcnJpZGUgdm9pZCBkaXNhYmxlZChib29sIGlzRGlzYWJsZWQpOw==" class="link-symbol-inner-child">@property override void disabled(bool isDisabled);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBhZGQoQ29tcG9uZW50IGNoaWxkLCBzaXplX3QgbGF5ZXIpOw==" class="link-symbol-inner-child">void add(Component child, size_t layer);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBhZGQoQ29tcG9uZW50W10gY29tcG9uZW50cywgc2l6ZV90IGxheWVyKTs=" class="link-symbol-inner-child">void add(Component[] components, size_t layer);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCByZW1vdmUoQ29tcG9uZW50IGNoaWxkKTs=" class="link-symbol-inner-child">void remove(Component child);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCByZW1vdmUoc3RyaW5nIG5hbWUpOw==" class="link-symbol-inner-child">void remove(string name);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjbGVhcigpOw==" class="link-symbol-inner-child">void clear();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjbGVhcihzaXplX3QgbGF5ZXIpOw==" class="link-symbol-inner-child">void clear(size_t layer);</a><br>
+</div>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protected:</h4>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#b3ZlcnJpZGUgdm9pZCBwcm9jZXNzKFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="link-symbol-inner-child">override void process(RenderWindow window);</a><br>
+</div>
+<br>
+<br>
+<p class="symbol-description">A container component.<p>
+</div>
+<br>
+<div id="dGhpcyhzdHJpbmcgbmFtZSwgU2l6ZSBpbml0aWFsU2l6ZSwgc2l6ZV90IGxheWVycyk7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public this(string name, <a href="poison_core_vector.html#cHVibGljIGFsaWFzIFNpemUgPSBTaXplMmRWZWN0b3Ihc2l6ZV90Ow==">Size</a> initialSize, size_t layers);</h3>
+<hr>
+<p class="symbol-description">Creates a new container.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">name</td><td class="symbol-param" style="padding: 6px;">The name of the container.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">initialSize</td><td class="symbol-param" style="padding: 6px;">The initial size of the container.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">layers</td><td class="symbol-param" style="padding: 6px;">The layers of the container.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dGhpcyhzdHJpbmcgbmFtZSwgc2l6ZV90IGxheWVycyk7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public this(string name, size_t layers);</h3>
+<hr>
+<p class="symbol-description">Creates a new container.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">name</td><td class="symbol-param" style="padding: 6px;">The name of the container.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">layers</td><td class="symbol-param" style="padding: 6px;">The layers of the container.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="b3ZlcnJpZGUgYm9vbCBkaXNhYmxlZCgpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public @property override bool disabled();</h3>
+<hr>
+<p class="symbol-description">Gets a boolean determining whether the container is disabled or not.<p>
+</div>
+<br>
+<div id="b3ZlcnJpZGUgdm9pZCBkaXNhYmxlZChib29sIGlzRGlzYWJsZWQpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public @property override void disabled(bool isDisabled);</h3>
+<hr>
+<p class="symbol-description">Sets a boolean determining whether the container is disabled or not.<p>
+</div>
+<br>
+<div id="dm9pZCBhZGQoQ29tcG9uZW50IGNoaWxkLCBzaXplX3QgbGF5ZXIpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void add(<a href="poison_ui_component.html#Y2xhc3MgQ29tcG9uZW50IDogU3BhY2U=">Component</a> child, size_t layer);</h3>
+<hr>
+<p class="symbol-description">Adds a component to the container.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">child</td><td class="symbol-param" style="padding: 6px;">The child component to add.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">layer</td><td class="symbol-param" style="padding: 6px;">The layer to add the component to.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCBhZGQoQ29tcG9uZW50W10gY29tcG9uZW50cywgc2l6ZV90IGxheWVyKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void add(Component[] components, size_t layer);</h3>
+<hr>
+<p class="symbol-description">Adds an array of components to the container.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">components</td><td class="symbol-param" style="padding: 6px;">The child components to add.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">layer</td><td class="symbol-param" style="padding: 6px;">The layer to add the components to.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCByZW1vdmUoQ29tcG9uZW50IGNoaWxkKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void remove(<a href="poison_ui_component.html#Y2xhc3MgQ29tcG9uZW50IDogU3BhY2U=">Component</a> child);</h3>
+<hr>
+<p class="symbol-description">Removes a component from the container.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">child</td><td class="symbol-param" style="padding: 6px;">The child component to remove.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCByZW1vdmUoc3RyaW5nIG5hbWUpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void remove(string name);</h3>
+<hr>
+<p class="symbol-description">Removes a component from the container.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">name</td><td class="symbol-param" style="padding: 6px;">The name of the component.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCBjbGVhcigpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void clear();</h3>
+<hr>
+<p class="symbol-description">Clears the component for children.<p>
+</div>
+<br>
+<div id="dm9pZCBjbGVhcihzaXplX3QgbGF5ZXIpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void clear(size_t layer);</h3>
+<hr>
+<p class="symbol-description">Clears the components for a specific layer.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">layer</td><td class="symbol-param" style="padding: 6px;">The layer to clear.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="b3ZlcnJpZGUgdm9pZCBwcm9jZXNzKFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>protected override void process(RenderWindow window);</h3>
+<hr>
+<p class="symbol-description">Processes the container during application cycles.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">window</td><td class="symbol-param" style="padding: 6px;">The render window to process.</td>
+</tr>
+</table>
+</div>
+<br>
+<i>Generated by venom - Poison Engine's Documentation Generator</i>
+</body>
+</html>

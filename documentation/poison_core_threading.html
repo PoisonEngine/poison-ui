@@ -1,0 +1,172 @@
+<html>
+<head>
+
+    <style type="text/css">
+      body {
+        font-family: verdana, tahoma;
+      }
+
+      a {
+        color: #666;
+      }
+
+      .module-description-container: {
+        background-color: #eee;
+        border: 1px solid #ccc;
+        font-style: italics;
+      }
+
+      .import-table {
+        background-color: #eee;
+        border: 1px solid #ccc;
+      }
+
+      .import {
+        font-weight: bold;
+      }
+
+      .link-symbol-outer {
+      }
+
+      .link-symbol-inner {
+        font-size: 20px;
+      }
+
+      .link-symbol-inner-child {
+        font-weight: bold;
+      }
+
+      .symbol {
+        border: 1px solid #ccc;
+        background-color: #eee;
+      }
+
+      .symbol hr {
+        height: 1px;
+        color: #ccc;
+        background-color: #ccc;
+        border: none;
+      }
+
+      .symbol-description {
+
+      }
+
+      .symbol-params {
+        background-color: #999;
+      }
+
+      .symbol-param {
+        border: 1px solid #333;
+      }
+
+      .symbol-docs {
+
+      }
+
+      .symbol-docs-description {
+
+      }
+    </style>
+  
+<title>poison.core.threading</title>
+</head>
+<body>
+<h1>poison.core.threading</h2>
+<a href="https://github.com/PoisonEngine/poison-ui/blob/master/src/core/threading.d">Source</a>
+<div class="module-description-container">
+<p>Module for threading.
+
+</p>
+<h4 class="symbol-docs">Authors:</h4>
+&nbsp;&nbsp;<i class="symbol-docs-description">Jacob Jensen</i>
+<h4 class="symbol-docs">License:</h4>
+&nbsp;&nbsp;<a href="https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE" class="symbol-docs-description">https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE</a>
+</div>
+<br>
+<div class="import-table">
+<h3>Imports</h3>
+<a class="import" href="https://dlang.org/phobos/std_concurrency.html">std.concurrency : send, receive, Tid, thisTid, receiveTimeout</a><br><br>
+<a class="import" href="core_thread.html">core.thread : dur</a><br><br>
+<a class="import" href="poison_core_action.html">poison.core.action</a><br><br>
+</div>
+<h4>public:</h4>
+<div class="link-symbol-outer">
+<a href="#QHByb3BlcnR5IGJvb2wgaXNVSVRocmVhZCgpOw==" class="link-symbol-inner">@property bool isUIThread();</a><br>
+</div>
+<br>
+<br>
+<div class="link-symbol-outer">
+<a href="#dm9pZCBleGVjdXRlVUkodm9pZCBmdW5jdGlvbigpIGYpOw==" class="link-symbol-inner">void executeUI(void function() f);</a><br>
+</div>
+<br>
+<br>
+<div class="link-symbol-outer">
+<a href="#dm9pZCBleGVjdXRlVUkodm9pZCBkZWxlZ2F0ZSgpIGQpOw==" class="link-symbol-inner">void executeUI(void delegate() d);</a><br>
+</div>
+<br>
+<br>
+<div class="link-symbol-outer">
+<a href="#dm9pZCBleGVjdXRlVUkoQWN0aW9uIGFjdGlvbik7" class="link-symbol-inner">void executeUI(Action action);</a><br>
+</div>
+<br>
+<br>
+<div class="link-symbol-outer">
+<a href="#dm9pZCByZWNlaXZlTWVzc2FnZXMoKTs=" class="link-symbol-inner">void receiveMessages();</a><br>
+</div>
+<br>
+<br>
+<div id="QHByb3BlcnR5IGJvb2wgaXNVSVRocmVhZCgpOw==" class="symbol" style="margin-left: 0px; padding: 6px;">
+<h3>public @property bool isUIThread();</h3>
+<hr>
+<p class="symbol-description">Checks whether the current thread is the UI thread.<p>
+</div>
+<br>
+<div id="dm9pZCBleGVjdXRlVUkodm9pZCBmdW5jdGlvbigpIGYpOw==" class="symbol" style="margin-left: 0px; padding: 6px;">
+<h3>public void executeUI(void function() f);</h3>
+<hr>
+<p class="symbol-description">Executes an action on the UI thread.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">f</td><td class="symbol-param" style="padding: 6px;">The function pointer to execute.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCBleGVjdXRlVUkodm9pZCBkZWxlZ2F0ZSgpIGQpOw==" class="symbol" style="margin-left: 0px; padding: 6px;">
+<h3>public void executeUI(void delegate() d);</h3>
+<hr>
+<p class="symbol-description">Executes an action on the UI thread.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">d</td><td class="symbol-param" style="padding: 6px;">The delegate to execute.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCBleGVjdXRlVUkoQWN0aW9uIGFjdGlvbik7" class="symbol" style="margin-left: 0px; padding: 6px;">
+<h3>public void executeUI(<a href="poison_core_action.html#Y2xhc3MgQWN0aW9u">Action</a> action);</h3>
+<hr>
+<p class="symbol-description">Executes an action on the UI thread.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">action</td><td class="symbol-param" style="padding: 6px;">The action to execute.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCByZWNlaXZlTWVzc2FnZXMoKTs=" class="symbol" style="margin-left: 0px; padding: 6px;">
+<h3>public void receiveMessages();</h3>
+<hr>
+<p class="symbol-description">Receives all messages for the current thread and executes them.<p>
+</div>
+<br>
+<i>Generated by venom - Poison Engine's Documentation Generator</i>
+</body>
+</html>
