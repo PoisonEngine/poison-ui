@@ -9,6 +9,7 @@
 	"targetType": "sourceLibrary",
 	"sourcePaths": ["src"],
 	"copyFiles": ["resources"],
+	"homepage": "https://poisonengine.github.io/poison-ui/",
 	"dependencies": {
 		"dsfml": {
 			"version": "~>2.1.1"
