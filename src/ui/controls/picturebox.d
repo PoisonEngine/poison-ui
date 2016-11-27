@@ -1,3 +1,11 @@
+/**
+* Module for a picturebox.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.ui.controls.picturebox;
 
 import poison.ui.picture;

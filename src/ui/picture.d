@@ -1,3 +1,11 @@
+/**
+* Module for picture manipulation.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.ui.picture;
 
 import dsfml.graphics : Image, Texture, RenderWindow;
@@ -177,7 +185,9 @@ final class Picture {
       this(copyImage._size, copyImage._fillPaint);
     }
 
-    _graphics = copyImage._graphics;
+    if (copyImage._graphics) {
+      _graphics = copyImage._graphics.dup;
+    }
   }
 
   /// Clears the graphics.
@@ -308,6 +318,22 @@ final class Picture {
   @property {
     /// Gets the size of the picture.
     Size size() { return _size; }
+
+    /// Gets the file name.
+    string fileName() { return _fileName; }
+
+    /// Sets the file name.
+    void fileName(string newFileName) {
+      _fileName = newFileName;
+    }
+
+    /// Gets the image buffer.
+    ubyte[] imageBuffer() { return _imageBuffer; }
+
+    /// Sets the image buffer.
+    void imageBuffer(ubyte[] imageBuffer) {
+      _imageBuffer = imageBuffer;
+    }
   }
 
   package(poison):

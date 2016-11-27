@@ -1,3 +1,11 @@
+/**
+* Module for core application handling.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.application;
 
 import std.concurrency : thisTid;

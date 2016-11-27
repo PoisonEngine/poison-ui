@@ -1,3 +1,11 @@
+/**
+* Module for graphics.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.ui.graphics;
 
 import dsfml.graphics : RectangleShape;

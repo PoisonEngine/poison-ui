@@ -1,3 +1,11 @@
+/**
+* A module for button event args handling.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.eventargs.buttoneventargs;
 
 import std.algorithm : filter;

@@ -1,3 +1,11 @@
+/**
+* Module for event handlers.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.eventhandler;
 
 import poison.core.eventargs;

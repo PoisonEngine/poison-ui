@@ -1,3 +1,11 @@
+/**
+* Module for mouse event args handling.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.eventargs.mouseeventargs;
 
 import dsfml.window : Mouse;

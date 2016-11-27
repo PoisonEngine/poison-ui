@@ -1,6 +1,34 @@
+/**
+* Module for paint.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.ui.paint;
 
 import dsfml.graphics : Color;
+
+/// Paint structure.
+struct Paint {
+public:
+	///	The red channel.
+	ubyte r;
+	///	The green channel.
+	ubyte g;
+	///	The blue channel.
+	ubyte b;
+	///	The alpha channel.
+	ubyte a;
+
+	@property {
+    /// Gets the low-level sfml color equivalent to the paint.
+  	Color sfmlColor() {
+  		return Color(r,g,b,a);
+  	}
+  }
+}
 
 /**
 *	Gets a painting from RGBA.
@@ -630,23 +658,3 @@ Paint yellow = paintFromRGBA(0xff, 0xff, 0x00);
 
 /// YellowGreen paint.
 Paint yellowGreen = paintFromRGBA(0x9a, 0xcd, 0x32);
-
-/// Paint structure.
-struct Paint {
-public:
-	///	The red channel.
-	ubyte r;
-	///	The green channel.
-	ubyte g;
-	///	The blue channel.
-	ubyte b;
-	///	The alpha channel.
-	ubyte a;
-
-	@property {
-    /// Gets the low-level sfml color equivalent to the paint.
-  	Color sfmlColor() {
-  		return Color(r,g,b,a);
-  	}
-  }
-}

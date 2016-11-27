@@ -1,3 +1,11 @@
+/**
+* Module for threading.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.threading;
 
 import std.concurrency : send, receive, Tid, thisTid, receiveTimeout;

@@ -1,3 +1,11 @@
+/**
+* Module for location handling.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.location;
 
 /// Enumeration of locations.

@@ -1,3 +1,11 @@
+/**
+* Module for change event args handling.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.eventargs.changeeventargs;
 
 import poison.core.eventargs : EventArgs;
