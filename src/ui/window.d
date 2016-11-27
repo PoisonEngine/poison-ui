@@ -1,3 +1,11 @@
+/**
+* Module for window handling.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.ui.window;
 
 import dsfmlWindow = dsfml.window;

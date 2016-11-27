@@ -1,3 +1,11 @@
+/**
+* Module for cross threading exceptions.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.exceptions.crossthreadingexception;
 
 /// Exception thrown when attempting cross threading access in non-allowed contexts.

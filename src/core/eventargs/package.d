@@ -1,3 +1,11 @@
+/**
+* Package module for event args.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.eventargs;
 
 /// Base event args
@@ -14,7 +22,7 @@ class EventArgs {
   public:
   static:
   @property {
-    /// Gets an empty event args. 
+    /// Gets an empty event args.
     EventArgs empty() {
       if (!_empty) {
         _empty = new EventArgs();

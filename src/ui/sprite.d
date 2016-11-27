@@ -1,3 +1,11 @@
+/**
+* Module for texture sprite handling.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.ui.sprite;
 
 import dsfml.graphics : Sprite, Texture;

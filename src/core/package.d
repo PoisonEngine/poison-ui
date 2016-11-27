@@ -1,3 +1,11 @@
+/**
+* Package module for the core modules.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core;
 
 public {

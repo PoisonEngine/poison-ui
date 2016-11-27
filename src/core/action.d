@@ -1,3 +1,11 @@
+/**
+* Module for actions. Actions are classes that wraps around a function pointer or delegate.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.action;
 
 /// An action.

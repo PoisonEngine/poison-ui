@@ -1,3 +1,11 @@
+/**
+* Module for a component.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.ui.component;
 
 import std.algorithm : filter;
@@ -16,7 +24,7 @@ public import dsfml.graphics : RenderWindow;
 /// The next component id.
 private size_t nextId = 0;
 
-/// A component.
+/// A component, which is the base for all controls and elements.
 class Component : Space {
   private:
   /// The name.

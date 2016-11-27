@@ -1,3 +1,11 @@
+/**
+* Module for event observation.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.core.eventobserver;
 
 import poison.core.eventhandler;

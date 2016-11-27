@@ -1,3 +1,11 @@
+/**
+* Module for fonts.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.ui.fonts;
 
 import std.file : dirEntries, SpanMode;
@@ -41,7 +49,9 @@ void loadFonts(string path) {
 /**
 * Loads a font by its path or retrieves it from the font cache.
 * Params:
-*   path =  The path of the font. Note: The path can be a name too, but is required with the font-style suffix. Use retrieveFont for easier access.
+*   path =  The path of the font.
+* Note:
+*   The path can be a name too, but is required with the font-style suffix. Use retrieveFont for easier access.
 */
 Font loadFont(string path) {
   auto font = _fonts.get(path, null);

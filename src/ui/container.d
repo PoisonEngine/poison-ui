@@ -1,3 +1,11 @@
+/**
+* Module for a container.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.ui.container;
 
 import std.algorithm : filter;

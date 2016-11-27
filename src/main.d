@@ -1,3 +1,11 @@
+/**
+* Main module.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module main;
 
 /// The entry point.
@@ -5,7 +13,7 @@ private void main(string[] args) {
   try {
     import poison.ui.fonts;
     loadFonts("resources\\poison\\fonts");
-    
+
     import poison.ui.styles;
 
     version (Poison_SharedStyles) {

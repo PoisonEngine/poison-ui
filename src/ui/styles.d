@@ -1,3 +1,11 @@
+/**
+* Module for style handling/parsing.
+*
+* Authors:
+*   Jacob Jensen
+* License:
+*   https://github.com/PoisonEngine/poison-ui/blob/master/LICENSE
+*/
 module poison.ui.styles;
 
 import std.file : readText;
@@ -74,7 +82,7 @@ void loadStyles(string jsonText) {
                 }
 
                 case "image": {
-                  gfx.backgroundPicture = handleImageInput(propertyValue);
+                  gfx.backgroundPicture = handleImageInput(graphics, propertyValue);
                   break;
                 }
               }
@@ -88,7 +96,7 @@ void loadStyles(string jsonText) {
           }
 
           case "background-image": {
-            graphics.backgroundPicture = handleImageInput(value);
+            graphics.backgroundPicture = handleImageInput(graphics, value);
             break;
           }
 
@@ -246,14 +254,20 @@ Paint handlePaintInput(string value) {
 /**
 * Handles image inputs.
 * Params:
-*   value = The image input.
+*   graphics =  The graphics.
+*   value =     The image input.
 * Returns:
 *   The generated picture from the value.
 */
-Picture handleImageInput(string value) {
+Picture handleImageInput(Graphics graphics, string value) {
   auto data = value.split(":");
 
   if (data.length == 1) {
+    if (graphics.backgroundPicture) {
+      graphics.backgroundPicture.fileName = value;
+      return graphics.backgroundPicture;
+    }
+
     return new Picture(value);
   }
   else {
@@ -265,6 +279,11 @@ Picture handleImageInput(string value) {
     final switch (propertyName) {
       case "base64": {
         auto buffer = Base64.decode(propertyValue);
+
+        if (graphics.backgroundPicture) {
+          graphics.backgroundPicture.imageBuffer = buffer;
+          return graphics.backgroundPicture;
+        }
 
         return new Picture(buffer);
       }
