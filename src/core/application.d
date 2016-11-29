@@ -168,6 +168,7 @@ class Application {
   }
 
   @property {
+    /// Gets the app.
     Application app() { return _app; }
   }
 }

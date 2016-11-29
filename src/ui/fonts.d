@@ -51,7 +51,9 @@ void loadFonts(string path) {
 * Params:
 *   path =  The path of the font.
 * Note:
-*   The path can be a name too, but is required with the font-style suffix. Use retrieveFont for easier access.
+* If the path is specified as a font-name, it must be prefixed with its proper font-style suffix. Use retrieveFont for easier access.
+* Returns:
+*   The font loaded from its path or name.
 */
 Font loadFont(string path) {
   auto font = _fonts.get(path, null);
@@ -67,6 +69,7 @@ Font loadFont(string path) {
 
   _fonts[name] = font;
   _fonts[path] = font;
+
   return font;
 }
 
@@ -75,6 +78,8 @@ Font loadFont(string path) {
 * Params:
 *   fontName =  The name of the font to retrieve.
 *   style =     The style of the font.
+* Returns:
+*   The font retrieved by its name and style.
 */
 Font retrieveFont(string fontName, FontStyle style) {
   return _fonts.get(fontName ~ style, null);

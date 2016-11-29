@@ -9,13 +9,13 @@
 module poison.ui.window;
 
 import dsfmlWindow = dsfml.window;
-import dsfml.window : Event;
+import dsfml.window : Event, Keyboard, Mouse;
 
 private alias ContextSettings = dsfmlWindow.ContextSettings;
 private alias VideoMode = dsfmlWindow.VideoMode;
 private alias WindowStyle = dsfmlWindow.Window.Style;
 
-import poison.core : Point, Size, ActionArgs, KeyEventArgs, MouseEventArgs, TextEventArgs;
+import poison.core : Point, Size, ActionArgs, KeyEventArgs, MouseEventArgs, TextEventArgs, executeUI;
 import poison.ui.container;
 import poison.ui.component;
 
@@ -42,6 +42,9 @@ class Window : Container {
 
   /// The fps for the window.
   uint _fps;
+
+  /// Boolean determining whether the cursor is visible or not.
+  bool _cursorVisible;
 
   public:
   /**
@@ -114,6 +117,16 @@ class Window : Container {
         _window.setFramerateLimit(_fps);
       }
     }
+
+    /// Gets a boolean determining whether the cursor is visible or not.
+    bool cursorVisible() { return _cursorVisible; }
+
+    /// Sets a boolean determining whether the cursor is visible or not.
+    void cursorVisible(bool isCursorVisible) {
+      _cursorVisible = isCursorVisible;
+
+      _window.setMouseCursorVisible(_cursorVisible);
+    }
   }
 
   /// Shows the window.
@@ -136,6 +149,88 @@ class Window : Container {
     assert(_window !is null);
 
     _window.close();
+  }
+
+  /**
+  * Sends a key input through memory.
+  * Params:
+  *   key = The key to send an input of.
+  */
+  void sendKeyInput(Keyboard.Key key) {
+    executeUI({
+      _keyEvent.press(key);
+
+      if (_windowComponents) {
+        foreach (component; _windowComponents) {
+          if (component && !component.disabled) {
+            component.fireEvent("keyDown", _keyEvent);
+          }
+        }
+      }
+
+      _keyEvent.release(key);
+
+      if (_windowComponents) {
+        foreach (component; _windowComponents) {
+          if (component && !component.disabled) {
+            component.fireEvent("keyUp", _keyEvent);
+          }
+        }
+      }
+    });
+  }
+
+  /**
+  * Sends a mouse input through memory.
+  * Params:
+  *   button =    The button to send an input of.
+  *   position =  The position of the mouse input.
+  * Note:
+  *   This doesn't change the position of the cursor. Use Window.changeCursorPosition() instead.
+  */
+  void sendMouseInput(Mouse.Button button, Point position) {
+    executeUI({
+      auto lastPosition = _mouseEvent.position;
+
+      _mouseEvent.press(button);
+      _mouseEvent.position = position;
+
+      if (_windowComponents) {
+        foreach (component; _windowComponents) {
+          if (component && !component.disabled) {
+            component.fireEvent("mouseDown", _mouseEvent);
+          }
+        }
+      }
+
+      _mouseEvent.release(button);
+
+      if (_windowComponents) {
+        foreach (component; _windowComponents) {
+          if (component && !component.disabled) {
+            component.fireEvent("mouseUp", _mouseEvent);
+          }
+        }
+      }
+
+      _mouseEvent.position = lastPosition;
+    });
+  }
+
+  /**
+  * Changes the cursor position.
+  * Params:
+  *   position =  The position to set the cursor at.
+  * Note:
+  *   For virtual mouse presses do not use this. Use Window.sendMouseInput() instead.
+  */
+  void changeCursorPosition(Point position) {
+    executeUI({
+      _mouseEvent.position = position;
+
+      import dsfml.system : Vector2i;
+      Mouse.setPosition(Vector2i(position.x, position.y));
+    });
   }
 
   package(poison):

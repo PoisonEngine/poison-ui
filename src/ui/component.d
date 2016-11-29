@@ -10,6 +10,7 @@ module poison.ui.component;
 
 import std.algorithm : filter;
 import std.array : array;
+import std.concurrency : thisTid;
 
 import poison.ui.space;
 import poison.core : ActionArgs, Point, Size, EventArgs, ChangeEventArgs, executeUI, isUIThread, CrossThreadingExeption;
@@ -75,7 +76,7 @@ class Component : Space {
   */
   this(string name, Size initialSize) {
     if (!isUIThread) {
-      throw new CrossThreadingExeption("Cannot create a component outside the UI thread. Consider using exeuteUI();");
+      throw new CrossThreadingExeption(thisTid, "Cannot create a component outside the UI thread. Consider using exeuteUI();");
     }
 
     super(new Point(0, 0), initialSize);
@@ -97,6 +98,10 @@ class Component : Space {
     this(name, new Size(100, 100));
   }
 
+  @property {
+    /// Gets the graphics of the component.
+    Graphics graphics() { return _graphics; }
+  }
 
   /// Renders the component. Override this!
   void render() {
@@ -124,6 +129,17 @@ class Component : Space {
       if (picture.drawingSprite) {
         window.draw(picture.drawingSprite);
       }
+    }
+  }
+
+  /**
+  * Processes the component during application cycles.
+  * Params:
+  *   window = The render window to process.
+  */
+  void process(RenderWindow window) {
+    if (!_hidden) {
+      draw(window);
     }
   }
 
@@ -297,9 +313,11 @@ class Component : Space {
   }
 
   /**
-  * Checks whether the space intersects with a point.
+  * Checks whether the component intersects with a point.
   * Params:
   *   p = The point to check for intersection with.
+  * Returns:
+  *   True if the component intersects with a point.
   */
   override bool intersect(Point p) {
     auto pIntersects = _parentContainer ? _parentContainer.intersect(p) : true;
@@ -308,31 +326,16 @@ class Component : Space {
 	}
 
   /**
-  * Checks whether the space intersects with another space.
+  * Checks whether the component intersects with another space.
   * Params:
   *   target = The space to check for intersection with.
+  * Returns:
+  *   True if the component intersects with a space.
   */
   override bool intersect(Space target) {
     auto pIntersects = _parentContainer ? _parentContainer.intersect(target) : true;
 
     return pIntersects && super.intersect(target);
-   }
-
-  protected:
-  @property {
-    /// Gets the graphics of the component.
-    Graphics graphics() { return _graphics; }
-  }
-
-  /**
-  * Processes the component during application cycles.
-  * Params:
-  *   window = The render window to process.
-  */
-  void process(RenderWindow window) {
-    if (!_hidden) {
-      draw(window);
-    }
   }
 
   private:
@@ -363,7 +366,7 @@ class Component : Space {
   /**
   * Processes the component during application cycles.
   * Params:
-  *   window =        The render window to process.
+  *   window = The render window to process.
   */
   void processInternal(RenderWindow window) {
     process(window);
