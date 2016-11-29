@@ -115,6 +115,7 @@
 <h3>Imports</h3>
 <a class="import" href="https://dlang.org/phobos/std_algorithm.html">std.algorithm : filter</a><br><br>
 <a class="import" href="https://dlang.org/phobos/std_array.html">std.array : array</a><br><br>
+<a class="import" href="https://dlang.org/phobos/std_concurrency.html">std.concurrency : thisTid</a><br><br>
 <a class="import" href="poison_ui_space.html">poison.ui.space</a><br><br>
 <a class="import" href="poison_core.html">poison.core : ActionArgs, Point, Size, EventArgs, ChangeEventArgs, executeUI, isUIThread, CrossThreadingExeption</a><br><br>
 <a class="import" href="poison_ui_window.html">poison.ui.window</a><br><br>
@@ -137,10 +138,16 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhzdHJpbmcgbmFtZSk7" class="link-symbol-inner-child">this(string name);</a><br>
 </div>
 <div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#R3JhcGhpY3MgZ3JhcGhpY3MoKTs=" class="link-symbol-inner-child">@property Graphics graphics();</a><br>
+</div>
+<div class="link-symbol-outer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCByZW5kZXIoKTs=" class="link-symbol-inner-child">void render();</a><br>
 </div>
 <div class="link-symbol-outer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBkcmF3KFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="link-symbol-inner-child">void draw(RenderWindow window);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBwcm9jZXNzKFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="link-symbol-inner-child">void process(RenderWindow window);</a><br>
 </div>
 <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public:</h4>
 <div class="link-symbol-outer">
@@ -226,13 +233,6 @@
 </div>
 <div class="link-symbol-outer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#b3ZlcnJpZGUgYm9vbCBpbnRlcnNlY3QoU3BhY2UgdGFyZ2V0KTs=" class="link-symbol-inner-child">override bool intersect(Space target);</a><br>
-</div>
-<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protected:</h4>
-<div class="link-symbol-outer">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#R3JhcGhpY3MgZ3JhcGhpY3MoKTs=" class="link-symbol-inner-child">@property Graphics graphics();</a><br>
-</div>
-<div class="link-symbol-outer">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBwcm9jZXNzKFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="link-symbol-inner-child">void process(RenderWindow window);</a><br>
 </div>
 <br>
 <br>
@@ -247,10 +247,16 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dGhpcyhzdHJpbmcgbmFtZSk7" class="link-symbol-inner-child">this(string name);</a><br>
 </div>
 <div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#R3JhcGhpY3MgZ3JhcGhpY3MoKTs=" class="link-symbol-inner-child">@property Graphics graphics();</a><br>
+</div>
+<div class="link-symbol-outer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCByZW5kZXIoKTs=" class="link-symbol-inner-child">void render();</a><br>
 </div>
 <div class="link-symbol-outer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBkcmF3KFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="link-symbol-inner-child">void draw(RenderWindow window);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBwcm9jZXNzKFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="link-symbol-inner-child">void process(RenderWindow window);</a><br>
 </div>
 <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public:</h4>
 <div class="link-symbol-outer">
@@ -336,13 +342,6 @@
 </div>
 <div class="link-symbol-outer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#b3ZlcnJpZGUgYm9vbCBpbnRlcnNlY3QoU3BhY2UgdGFyZ2V0KTs=" class="link-symbol-inner-child">override bool intersect(Space target);</a><br>
-</div>
-<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protected:</h4>
-<div class="link-symbol-outer">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#R3JhcGhpY3MgZ3JhcGhpY3MoKTs=" class="link-symbol-inner-child">@property Graphics graphics();</a><br>
-</div>
-<div class="link-symbol-outer">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBwcm9jZXNzKFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="link-symbol-inner-child">void process(RenderWindow window);</a><br>
 </div>
 <br>
 <br>
@@ -378,6 +377,12 @@
 </table>
 </div>
 <br>
+<div id="R3JhcGhpY3MgZ3JhcGhpY3MoKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>protected @property <a href="poison_ui_graphics.html#Y2xhc3MgR3JhcGhpY3M=">Graphics</a> graphics();</h3>
+<hr>
+<p class="symbol-description">Gets the graphics of the component.<p>
+</div>
+<br>
 <div id="dm9pZCByZW5kZXIoKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
 <h3>protected void render();</h3>
 <hr>
@@ -393,6 +398,19 @@
 <table class="symbol-params" style="width: 100%">
 <tr>
 <td class="symbol-param" style="padding: 6px;">window</td><td class="symbol-param" style="padding: 6px;">The window to draw the component to.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCBwcm9jZXNzKFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>protected void process(RenderWindow window);</h3>
+<hr>
+<p class="symbol-description">Processes the component during application cycles.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">window</td><td class="symbol-param" style="padding: 6px;">The render window to process.</td>
 </tr>
 </table>
 </div>
@@ -564,7 +582,7 @@
 <div id="b3ZlcnJpZGUgYm9vbCBpbnRlcnNlY3QoUG9pbnQgcCk7" class="symbol" style="margin-left: 16px; padding: 6px;">
 <h3>public override bool intersect(<a href="poison_core_vector.html#cHVibGljIGFsaWFzIFBvaW50ID0gUG9pbnQyZFZlY3RvciFwdHJkaWZmX3Q7">Point</a> p);</h3>
 <hr>
-<p class="symbol-description">Checks whether the space intersects with a point.
+<p class="symbol-description">Checks whether the component intersects with a point.
 <p>
 <h4>Parameters:</h4>
 <table class="symbol-params" style="width: 100%">
@@ -572,12 +590,14 @@
 <td class="symbol-param" style="padding: 6px;">p</td><td class="symbol-param" style="padding: 6px;">The point to check for intersection with.</td>
 </tr>
 </table>
+<h4 class="symbol-docs">Returns:</h4>
+&nbsp;&nbsp;<i class="symbol-docs-description">True if the component intersects with a point.</i>
 </div>
 <br>
 <div id="b3ZlcnJpZGUgYm9vbCBpbnRlcnNlY3QoU3BhY2UgdGFyZ2V0KTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
 <h3>public override bool intersect(<a href="poison_ui_space.html#Y2xhc3MgU3BhY2UgOiBFdmVudE9ic2VydmVy">Space</a> target);</h3>
 <hr>
-<p class="symbol-description">Checks whether the space intersects with another space.
+<p class="symbol-description">Checks whether the component intersects with another space.
 <p>
 <h4>Parameters:</h4>
 <table class="symbol-params" style="width: 100%">
@@ -585,25 +605,8 @@
 <td class="symbol-param" style="padding: 6px;">target</td><td class="symbol-param" style="padding: 6px;">The space to check for intersection with.</td>
 </tr>
 </table>
-</div>
-<br>
-<div id="R3JhcGhpY3MgZ3JhcGhpY3MoKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
-<h3>protected @property <a href="poison_ui_graphics.html#Y2xhc3MgR3JhcGhpY3M=">Graphics</a> graphics();</h3>
-<hr>
-<p class="symbol-description">Gets the graphics of the component.<p>
-</div>
-<br>
-<div id="dm9pZCBwcm9jZXNzKFJlbmRlcldpbmRvdyB3aW5kb3cpOw==" class="symbol" style="margin-left: 16px; padding: 6px;">
-<h3>protected void process(RenderWindow window);</h3>
-<hr>
-<p class="symbol-description">Processes the component during application cycles.
-<p>
-<h4>Parameters:</h4>
-<table class="symbol-params" style="width: 100%">
-<tr>
-<td class="symbol-param" style="padding: 6px;">window</td><td class="symbol-param" style="padding: 6px;">The render window to process.</td>
-</tr>
-</table>
+<h4 class="symbol-docs">Returns:</h4>
+&nbsp;&nbsp;<i class="symbol-docs-description">True if the component intersects with a space.</i>
 </div>
 <br>
 <i>Generated by venom - Poison Engine's Documentation Generator</i>

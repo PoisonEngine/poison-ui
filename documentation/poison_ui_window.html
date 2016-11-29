@@ -114,10 +114,11 @@
 <div class="import-table">
 <h3>Imports</h3>
 <a class="import" href="http://dsfml.com/doc.html">dsfmlWindow = dsfml.window</a><br><br>
-<a class="import" href="http://dsfml.com/doc.html">dsfml.window : Event</a><br><br>
-<a class="import" href="poison_core.html">poison.core : Point, Size, ActionArgs, KeyEventArgs, MouseEventArgs, TextEventArgs</a><br><br>
+<a class="import" href="http://dsfml.com/doc.html">dsfml.window : Event, Keyboard, Mouse</a><br><br>
+<a class="import" href="poison_core.html">poison.core : Point, Size, ActionArgs, KeyEventArgs, MouseEventArgs, TextEventArgs, executeUI</a><br><br>
 <a class="import" href="poison_ui_container.html">poison.ui.container</a><br><br>
 <a class="import" href="poison_ui_component.html">poison.ui.component</a><br><br>
+<a class="import" href="http://dsfml.com/doc.html">dsfml.system : Vector2i</a><br><br>
 </div>
 <h4>public:</h4>
 <div class="link-symbol-outer">
@@ -148,10 +149,25 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBmcHModWludCBuZXdGcHMpOw==" class="link-symbol-inner-child">@property void fps(uint newFps);</a><br>
 </div>
 <div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Ym9vbCBjdXJzb3JWaXNpYmxlKCk7" class="link-symbol-inner-child">@property bool cursorVisible();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjdXJzb3JWaXNpYmxlKGJvb2wgaXNDdXJzb3JWaXNpYmxlKTs=" class="link-symbol-inner-child">@property void cursorVisible(bool isCursorVisible);</a><br>
+</div>
+<div class="link-symbol-outer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#b3ZlcnJpZGUgdm9pZCBzaG93KCk7" class="link-symbol-inner-child">override void show();</a><br>
 </div>
 <div class="link-symbol-outer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjbG9zZSgpOw==" class="link-symbol-inner-child">void close();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBzZW5kS2V5SW5wdXQoS2V5Ym9hcmQuS2V5IGtleSk7" class="link-symbol-inner-child">void sendKeyInput(Keyboard.Key key);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBzZW5kTW91c2VJbnB1dChNb3VzZS5CdXR0b24gYnV0dG9uLCBQb2ludCBwb3NpdGlvbik7" class="link-symbol-inner-child">void sendMouseInput(Mouse.Button button, Point position);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjaGFuZ2VDdXJzb3JQb3NpdGlvbihQb2ludCBwb3NpdGlvbik7" class="link-symbol-inner-child">void changeCursorPosition(Point position);</a><br>
 </div>
 <br>
 <br>
@@ -184,10 +200,25 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBmcHModWludCBuZXdGcHMpOw==" class="link-symbol-inner-child">@property void fps(uint newFps);</a><br>
 </div>
 <div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Ym9vbCBjdXJzb3JWaXNpYmxlKCk7" class="link-symbol-inner-child">@property bool cursorVisible();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjdXJzb3JWaXNpYmxlKGJvb2wgaXNDdXJzb3JWaXNpYmxlKTs=" class="link-symbol-inner-child">@property void cursorVisible(bool isCursorVisible);</a><br>
+</div>
+<div class="link-symbol-outer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#b3ZlcnJpZGUgdm9pZCBzaG93KCk7" class="link-symbol-inner-child">override void show();</a><br>
 </div>
 <div class="link-symbol-outer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjbG9zZSgpOw==" class="link-symbol-inner-child">void close();</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBzZW5kS2V5SW5wdXQoS2V5Ym9hcmQuS2V5IGtleSk7" class="link-symbol-inner-child">void sendKeyInput(Keyboard.Key key);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBzZW5kTW91c2VJbnB1dChNb3VzZS5CdXR0b24gYnV0dG9uLCBQb2ludCBwb3NpdGlvbik7" class="link-symbol-inner-child">void sendMouseInput(Mouse.Button button, Point position);</a><br>
+</div>
+<div class="link-symbol-outer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dm9pZCBjaGFuZ2VDdXJzb3JQb3NpdGlvbihQb2ludCBwb3NpdGlvbik7" class="link-symbol-inner-child">void changeCursorPosition(Point position);</a><br>
 </div>
 <br>
 <br>
@@ -261,6 +292,18 @@
 <p class="symbol-description">Sets the fps of the window.<p>
 </div>
 <br>
+<div id="Ym9vbCBjdXJzb3JWaXNpYmxlKCk7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public @property bool cursorVisible();</h3>
+<hr>
+<p class="symbol-description">Gets a boolean determining whether the cursor is visible or not.<p>
+</div>
+<br>
+<div id="dm9pZCBjdXJzb3JWaXNpYmxlKGJvb2wgaXNDdXJzb3JWaXNpYmxlKTs=" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public @property void cursorVisible(bool isCursorVisible);</h3>
+<hr>
+<p class="symbol-description">Sets a boolean determining whether the cursor is visible or not.<p>
+</div>
+<br>
 <div id="b3ZlcnJpZGUgdm9pZCBzaG93KCk7" class="symbol" style="margin-left: 16px; padding: 6px;">
 <h3>public override void show();</h3>
 <hr>
@@ -271,6 +314,52 @@
 <h3>public void close();</h3>
 <hr>
 <p class="symbol-description">Closes the window.<p>
+</div>
+<br>
+<div id="dm9pZCBzZW5kS2V5SW5wdXQoS2V5Ym9hcmQuS2V5IGtleSk7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void sendKeyInput(Keyboard.Key key);</h3>
+<hr>
+<p class="symbol-description">Sends a key input through memory.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">key</td><td class="symbol-param" style="padding: 6px;">The key to send an input of.</td>
+</tr>
+</table>
+</div>
+<br>
+<div id="dm9pZCBzZW5kTW91c2VJbnB1dChNb3VzZS5CdXR0b24gYnV0dG9uLCBQb2ludCBwb3NpdGlvbik7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void sendMouseInput(Mouse.Button button, <a href="poison_core_vector.html#cHVibGljIGFsaWFzIFBvaW50ID0gUG9pbnQyZFZlY3RvciFwdHJkaWZmX3Q7">Point</a> position);</h3>
+<hr>
+<p class="symbol-description">Sends a mouse input through memory.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">button</td><td class="symbol-param" style="padding: 6px;">The button to send an input of.</td>
+</tr>
+<tr>
+<td class="symbol-param" style="padding: 6px;">position</td><td class="symbol-param" style="padding: 6px;">The position of the mouse input.</td>
+</tr>
+</table>
+<h4 class="symbol-docs">Note:</h4>
+&nbsp;&nbsp;<i class="symbol-docs-description">This doesn't change the position of the cursor. Use Window.changeCursorPosition() instead.</i>
+</div>
+<br>
+<div id="dm9pZCBjaGFuZ2VDdXJzb3JQb3NpdGlvbihQb2ludCBwb3NpdGlvbik7" class="symbol" style="margin-left: 16px; padding: 6px;">
+<h3>public void changeCursorPosition(<a href="poison_core_vector.html#cHVibGljIGFsaWFzIFBvaW50ID0gUG9pbnQyZFZlY3RvciFwdHJkaWZmX3Q7">Point</a> position);</h3>
+<hr>
+<p class="symbol-description">Changes the cursor position.
+<p>
+<h4>Parameters:</h4>
+<table class="symbol-params" style="width: 100%">
+<tr>
+<td class="symbol-param" style="padding: 6px;">position</td><td class="symbol-param" style="padding: 6px;">The position to set the cursor at.</td>
+</tr>
+</table>
+<h4 class="symbol-docs">Note:</h4>
+&nbsp;&nbsp;<i class="symbol-docs-description">For virtual mouse presses do not use this. Use Window.sendMouseInput() instead.</i>
 </div>
 <br>
 <i>Generated by venom - Poison Engine's Documentation Generator</i>
