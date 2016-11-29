@@ -18,7 +18,7 @@ package(poison.core) {
   __gshared Tid _uiTid;
 }
 
-/// Checks whether the current thread is the UI thread.
+/// Gets a boolean determining whether the current thread is the ui thread.
 @property bool isUIThread() {
   return thisTid == _uiTid;
 }

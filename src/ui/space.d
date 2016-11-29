@@ -247,6 +247,8 @@ class Space : EventObserver {
   * Checks whether the space intersects with a point.
   * Params:
   *   p = The point to check for intersection with.
+  * Returns:
+  *   If the space intersects with the point.
   */
   bool intersect(Point p) {
 		return (p.x > this.x) &&
@@ -259,6 +261,8 @@ class Space : EventObserver {
   * Checks whether the space intersects with another space.
   * Params:
   *   target = The space to check for intersection with.
+  * Returns:
+  *   True if the two spaces intersects.
   */
   bool intersect(Space target) {
     return(target.x < this.x + this.width) &&

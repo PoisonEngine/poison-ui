@@ -53,6 +53,8 @@ Paint paintFromRGBA(ubyte r, ubyte g, ubyte b, ubyte a = 0xff) {
 * Gets paint from a color name.
 * Params:
 *   name =  The name of the color.
+* Returns:
+*   The paint.
 */
 Paint paintFromName(string name) {
   import std.string : toLower;
