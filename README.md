@@ -85,22 +85,20 @@ Example for styling a window.
   * value: "path"
 * font-size (Done)
   * value: "size"
-* paint (Array of values)
-  * value: "position: value|size: value|color: value|gradient-hoz: value (Only fromColor & toColor)|gradient-ver: value (Only fromColor & toColor)"
-* paint-color (Array of values)
+* paint-color (Array of values) (Done)
   * value: "position: value|size: value|color: value"
-* paint-gradient-hoz / paint-gradient-ver (Array of values)
+* paint-gradient-hoz / paint-gradient-ver (Array of values) (Done)
   * value: "position: value|size: value|fromColor: value|toColor: value"
 * border / border-top / border-right / border-bottom / border-left
   * value: "size;color"
   * value: "style:size;color" (Style can be normal or round)
-* size
-  * value: "width;height" (values can be set to "auto" which means it will be set elsewhere"
+* size (Done)
+  * value: "width;height"
 * margin
   * value: "top;right;bottom;left"
 * padding
   * value: "top;right;bottom;left"
-* position
+* position (Done)
   * value: "x;y"
 * layout
   * value: "layout" (Can be fit, horizontal, vertical)
