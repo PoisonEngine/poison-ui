@@ -360,6 +360,7 @@ class Component : Space {
   void renderSub() {
     if (_graphics && _parentContainer) {
       _graphics.renderSub(_parentContainer.position, _parentContainer.size);
+      _hidden = !intersect(_parentContainer); // We set it directly to avoid events ...
     }
   }
 
@@ -376,7 +377,7 @@ class Component : Space {
   void updateStyles() {
     import poison.ui.styles;
 
-    if (_selectors) {
+    if (_renderSelectors) {
       foreach (selector; _renderSelectors) {
         auto styleEntry = getStyleEntry(selector);
 
@@ -392,6 +393,14 @@ class Component : Space {
 
           _graphics.font = styleEntry.font;
           _graphics.fontSize = styleEntry.fontSize;
+
+          if (styleEntry.hasSize) {
+            this.size = styleEntry.size;
+          }
+
+          if (styleEntry.hasPosition) {
+            this.position = styleEntry.position;
+          }
         }
       }
     }

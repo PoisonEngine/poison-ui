@@ -94,6 +94,7 @@ class Container : Component {
       child.parentContainer = this;
       parentWindow._windowComponents[child.id] = child;
 
+      child.disabled = child.disabled; // HACK: calls updateStyles() internally.
       child.renderSub();
       child.show();
     });

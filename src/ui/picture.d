@@ -115,8 +115,6 @@ final class Picture {
           }
         }
       }
-
-      _graphics = null;
     }
 
     if (backgroundImage) {
@@ -179,10 +177,10 @@ final class Picture {
       this(copyImage._imageBuffer.dup);
     }
     else if (copyImage._fileName) {
-      this(copyImage._fileName);
+      this(copyImage._fileName.dup);
     }
     else {
-      this(copyImage._size, copyImage._fillPaint);
+      this(new Size(copyImage._size.width, copyImage._size.height), copyImage._fillPaint);
     }
 
     if (copyImage._graphics) {
