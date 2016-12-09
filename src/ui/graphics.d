@@ -97,6 +97,12 @@ class Graphics {
   /// Boolean determining whether the background picture is displayable or not.
   bool _displayableBackgroundPicture;
 
+  /// Boolean determining whether the graphics has a size.
+  bool _hasSize;
+
+  /// Boolean determining whether the graphics has a position.
+  bool _hasPosition;
+
   public:
   final:
   /// Creates a new graphics wrapper.
@@ -191,21 +197,21 @@ class Graphics {
         _originalBackgroundPicture.y = cast(int)_position.y;
       }
     }
-  }
 
-  /// Sets the size of the graphics.
-  void size(Size newSize) {
-    _size = newSize;
+    /// Sets the size of the graphics.
+    void size(Size newSize) {
+      _size = newSize;
 
-    _backgroundRect = new RectangleShape(Vector2f(cast(float)_size.width, cast(float)_size.height));
-    backgroundPaint = _backgroundPaint;
-    position = _position;
+      _backgroundRect = new RectangleShape(Vector2f(cast(float)_size.width, cast(float)_size.height));
+      backgroundPaint = _backgroundPaint;
+      position = _position;
 
-    _originalBackgroundRect.width = _backgroundRect.size.x;
-    _originalBackgroundRect.height = _backgroundRect.size.y;
+      _originalBackgroundRect.width = _backgroundRect.size.x;
+      _originalBackgroundRect.height = _backgroundRect.size.y;
 
-    _originalBackgroundPicture.width = cast(int)_size.width;
-    _originalBackgroundPicture.height = cast(int)_size.height;
+      _originalBackgroundPicture.width = cast(int)_size.width;
+      _originalBackgroundPicture.height = cast(int)_size.height;
+    }
   }
 
   package(poison):
@@ -215,6 +221,75 @@ class Graphics {
 
     /// Gets a boolean determining whether the background picture is displayable.
     bool displayableBackgroundPicture() { return _displayableBackgroundPicture; }
+
+    /// Gets the size of the graphics. Use hasSize before using this.
+    Size size() { return _size; }
+
+    /// Gets the position of the graphics. Use hasPosition before using this.
+    Point position() { return _position; }
+
+    /// Gets a boolean determining whether the graphics has a size or not.
+    bool hasSize() { return _hasSize; }
+
+    /// Sets a boolean determining whether the graphics has a size or not.
+    void hasSize(bool setHasSize) {
+      _hasSize = setHasSize;
+    }
+
+    /// Gets a boolean determining whether the graphics has a position or not.
+    bool hasPosition() { return _hasPosition; }
+
+    /// Sets a boolean determining whether the graphics has a position or not.
+    void hasPosition(bool setHasPosition) {
+      _hasPosition = setHasPosition;
+    }
+  }
+
+  /**
+  * Finalizes paint inputs for the graphics.
+  * Params:
+  *   position =  The position of the paint input.
+  *   size =      The size of the paint input.
+  *   paint =     The paint.
+  */
+  void finalizePaint(Point position, Size size, Paint paint) {
+    if (!_backgroundPicture) {
+      _backgroundPicture = new Picture(size, transparent);
+    }
+
+    _backgroundPicture.draw(position, size, paint);
+  }
+
+  /**
+  * Finalizes vertical gradient inputs for the graphics.
+  * Params:
+  *   position =  The position of the graident.
+  *   size =      The size of the gradient.
+  *   fromPaint = The paint to draw the gradient from.
+  *   toPaint =   The paint to draw the gradient to.
+  */
+  void finalizeGradientVertical(Point position, Size size, Paint fromPaint, Paint toPaint) {
+    if (!_backgroundPicture) {
+      _backgroundPicture = new Picture(size, transparent);
+    }
+
+    _backgroundPicture.gradientVertical(position, size, fromPaint, toPaint);
+  }
+
+  /**
+  * Finalizes horizontal gradient inputs for the graphics.
+  * Params:
+  *   position =  The position of the graident.
+  *   size =      The size of the gradient.
+  *   fromPaint = The paint to draw the gradient from.
+  *   toPaint =   The paint to draw the gradient to.
+  */
+  void finalizeGradientHorizontal(Point position, Size size, Paint fromPaint, Paint toPaint) {
+    if (!_backgroundPicture) {
+      _backgroundPicture = new Picture(size, transparent);
+    }
+
+    _backgroundPicture.gradientHorizontal(position, size, fromPaint, toPaint);
   }
 
   /**

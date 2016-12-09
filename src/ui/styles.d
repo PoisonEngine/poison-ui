@@ -9,17 +9,18 @@
 module poison.ui.styles;
 
 import std.file : readText;
-import std.json : parseJSON;
+import std.json : parseJSON, JSONValue;
 import std.conv : to;
 import std.array : split, replace;
-import std.string : toLower;
-import std.algorithm : strip, stripLeft, stripRight, countUntil;
+import std.string : toLower, stripLeft, stripRight;
+import std.algorithm : countUntil;
 import std.base64 : Base64;
 
 import poison.ui.graphics;
 import poison.ui.paint;
 import poison.ui.picture;
 import poison.ui.fonts;
+import poison.core : Point, Size;
 
 /// Table of styles.
 private Graphics[string] _styles;
@@ -68,12 +69,10 @@ void loadStyles(string jsonText) {
       auto graphics = new Graphics();
 
       foreach (styleName,styleValue; styles) {
-        auto value = styleValue.str;
-
-        assert(value);
-
         final switch (styleName) {
           case "background": {
+            auto value = styleValue.str;
+
             handleGroups(graphics, value, (gfx, propertyName, propertyValue) {
               final switch (propertyName) {
                 case "color": {
@@ -91,21 +90,29 @@ void loadStyles(string jsonText) {
           }
 
           case "background-color": {
+            auto value = styleValue.str;
+
             graphics.backgroundPaint = handlePaintInput(value);
             break;
           }
 
           case "background-image": {
+            auto value = styleValue.str;
+
             graphics.backgroundPicture = handleImageInput(graphics, value);
             break;
           }
 
           case "foreground-color": {
+            auto value = styleValue.str;
+
             graphics.foregroundPaint = handlePaintInput(value);
             break;
           }
 
           case "font": {
+            auto value = styleValue.str;
+
             handleGroups(graphics, value, (gfx, propertyName, propertyValue) {
               final switch (propertyName) {
                 case "name": {
@@ -128,19 +135,104 @@ void loadStyles(string jsonText) {
           }
 
           case "font-name": {
+            auto value = styleValue.str;
+
             graphics.font = handleFontInput(value);
             break;
           }
 
           case "font-path": {
+            auto value = styleValue.str;
+
             graphics.font = loadFont(value);
             break;
           }
 
           case "font-size": {
+            auto value = styleValue.str;
+
             graphics.fontSize = to!uint(value);
+            break;
+          }
+
+          case "size": {
+            auto size = styleValue.str.split(";");
+
+            graphics.size = new Size(to!size_t(size[0]), to!size_t(size[1]));
+            graphics.hasSize = true;
+            break;
+          }
+
+          case "position": {
+            auto position = styleValue.str.split(";");
+
+            graphics.position = new Point(to!ptrdiff_t(position[0]), to!ptrdiff_t(position[1]));
+            graphics.hasPosition = true;
+            break;
+          }
+
+          case "paint-color": {
+            auto colors = styleValue.array;
+
+            if (!colors) {
+              break;
+            }
+
+            foreach (color; colors) {
+              Point colorPosition;
+              Size colorSize;
+              Paint colorPaint;
+
+              handleGroups(graphics, color.str, (gfx, propertyName, propertyValue) {
+                final switch (propertyName) {
+                  case "position": {
+                    auto position = propertyValue.split(";");
+
+                    if (position.length != 2) {
+                      break;
+                    }
+
+                    colorPosition = new Point(to!ptrdiff_t(position[0]), to!ptrdiff_t(position[1]));
+                    break;
+                  }
+
+                  case "size": {
+                    auto size = propertyValue.split(";");
+
+                    if (size.length != 2) {
+                      break;
+                    }
+
+                    colorSize = new Size(to!size_t(size[0]), to!size_t(size[1]));
+                    break;
+                  }
+
+                  case "color": {
+                    colorPaint = handlePaintInput(propertyValue);
+                    break;
+                  }
+                }
+              });
+
+              graphics.finalizePaint(colorPosition, colorSize, colorPaint);
+            }
+            break;
+          }
+
+          case "paint-gradient-hoz": {
+            handleGradientInput(styleValue, graphics, false);
+            break;
+          }
+
+          case "paint-gradient-ver": {
+            handleGradientInput(styleValue, graphics, true);
+            break;
           }
         }
+      }
+
+      if (graphics.backgroundPicture) {
+        graphics.backgroundPicture.finalize();
       }
 
       _styles[selector] = graphics;
@@ -174,7 +266,7 @@ void handleGroups(Graphics graphics, string value, void delegate(Graphics, strin
   foreach (group; groups) {
     auto separatorIndex = countUntil(group, ":");
     auto propertyName = group[0 .. separatorIndex];
-    auto propertyValue = group[separatorIndex + 1 .. $];
+    auto propertyValue = group[separatorIndex + 1 .. $].stripLeft().stripRight();
 
     predicate(graphics, propertyName, propertyValue);
   }
@@ -198,6 +290,71 @@ void handleGroups(Graphics graphics, string value, void function(Graphics, strin
     auto propertyValue = group[separatorIndex + 1 .. $];
 
     predicate(graphics, propertyName, propertyValue);
+  }
+}
+
+/**
+* Handles gradient input.
+* Params:
+*   styleValue =  The value of the style input.
+*   graphics =    The graphics.
+*   isVertical =  Boolean determining whether the gradient is vertical or not.
+*/
+void handleGradientInput(JSONValue styleValue, Graphics graphics, bool isVertical) {
+  auto gradients = styleValue.array;
+
+  if (!gradients) {
+    return;
+  }
+
+  foreach (gradient; gradients) {
+    Point gradientPosition;
+    Size gradientSize;
+    Paint fromColorPaint;
+    Paint toColorPaint;
+
+    handleGroups(graphics, gradient.str, (gfx, propertyName, propertyValue) {
+      final switch (propertyName) {
+        case "position": {
+          auto position = propertyValue.split(";");
+
+          if (position.length != 2) {
+            break;
+          }
+
+          gradientPosition = new Point(to!ptrdiff_t(position[0]), to!ptrdiff_t(position[1]));
+          break;
+        }
+
+        case "size": {
+          auto size = propertyValue.split(";");
+
+          if (size.length != 2) {
+            break;
+          }
+
+          gradientSize = new Size(to!size_t(size[0]), to!size_t(size[1]));
+          break;
+        }
+
+        case "fromColor": {
+          fromColorPaint = handlePaintInput(propertyValue);
+          break;
+        }
+
+        case "toColor": {
+          toColorPaint = handlePaintInput(propertyValue);
+          break;
+        }
+      }
+    });
+
+    if (isVertical) {
+      graphics.finalizeGradientVertical(gradientPosition, gradientSize, fromColorPaint, toColorPaint);
+    }
+    else {
+      graphics.finalizeGradientHorizontal(gradientPosition, gradientSize, fromColorPaint, toColorPaint);
+    }
   }
 }
 
