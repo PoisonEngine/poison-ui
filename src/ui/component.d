@@ -103,12 +103,6 @@ class Component : Space {
     Graphics graphics() { return _graphics; }
   }
 
-  /// Renders the component. Override this!
-  void render() {
-    _graphics.size = super.size;
-    _graphics.position = super.position;
-  }
-
   /**
   * Draws the component. Override this!
   * Params:
@@ -211,7 +205,6 @@ class Component : Space {
         fireEvent("innerText", new ChangeEventArgs!dstring(oldInnerText, _innerText));
 
         render();
-        renderSub();
       });
     }
 
@@ -239,7 +232,6 @@ class Component : Space {
         super.position = newPoint;
 
         render();
-        renderSub();
       });
     }
 
@@ -252,7 +244,6 @@ class Component : Space {
         super.size = newSize;
 
         render();
-        renderSub();
       });
     }
 
@@ -268,6 +259,14 @@ class Component : Space {
     Container parentContainer() {
       return _parentContainer;
     }
+  }
+
+  /// Renders the component. Override this!
+  void render() {
+    _graphics.size = super.size;
+    _graphics.position = super.position;
+
+    renderSub();
   }
 
   /// Shows the component.
@@ -378,6 +377,9 @@ class Component : Space {
     import poison.ui.styles;
 
     if (_renderSelectors) {
+      Size newSize;
+      Point newPosition;
+
       foreach (selector; _renderSelectors) {
         auto styleEntry = getStyleEntry(selector);
 
@@ -395,17 +397,27 @@ class Component : Space {
           _graphics.fontSize = styleEntry.fontSize;
 
           if (styleEntry.hasSize) {
-            this.size = styleEntry.size;
+            newSize = styleEntry.size;
           }
 
           if (styleEntry.hasPosition) {
-            this.position = styleEntry.position;
+            newPosition = styleEntry.position;
           }
         }
       }
+
+      if (newSize && !_graphics.hasSize) {
+        this.size = newSize;
+        _graphics.hasSize = true;
+      }
+
+      if (newPosition && !_graphics.hasPosition) {
+        this.position = newPosition;
+        _graphics.hasPosition = true;
+      }
     }
 
-    renderSub();
+    render();
   }
 
   @property {

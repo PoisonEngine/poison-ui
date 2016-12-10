@@ -95,7 +95,7 @@ class Container : Component {
       parentWindow._windowComponents[child.id] = child;
 
       child.disabled = child.disabled; // HACK: calls updateStyles() internally.
-      child.renderSub();
+      child.render();
       child.show();
     });
   }
