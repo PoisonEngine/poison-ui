@@ -90,16 +90,16 @@ class Space : EventObserver {
     }
 
     /// Gets the top margin of the space.
-    ptrdiff_t topMargin() { return _margin.top; }
+    ptrdiff_t marginTop() { return _margin.top; }
 
     /// Gets the right margin of the space.
-    ptrdiff_t rightMargin() { return _margin.right; }
+    ptrdiff_t marginRight() { return _margin.right; }
 
     /// Gets the bottom margin of the space.
-    ptrdiff_t bottomMargin() { return _margin.bottom; }
+    ptrdiff_t marginBottom() { return _margin.bottom; }
 
     /// Gets the left margin of the space.
-    ptrdiff_t leftMargin() { return _margin.left; }
+    ptrdiff_t marginLeft() { return _margin.left; }
 
     /// Gets the padding of the space.
     Edge padding() { return _padding; }
@@ -111,6 +111,18 @@ class Space : EventObserver {
 
       fireEvent("padding", new ChangeEventArgs!Edge(oldPadding, _padding));
     }
+
+    /// Gets the top padding of the space.
+    ptrdiff_t paddingTop() { return _padding.top; }
+
+    /// Gets the right padding of the space.
+    ptrdiff_t paddingRight() { return _padding.right; }
+
+    /// Gets the bottom padding of the space.
+    ptrdiff_t paddingBottom() { return _padding.bottom; }
+
+    /// Gets the left padding of the space.
+    ptrdiff_t paddingLeft() { return _padding.left; }
   }
 
   /**
@@ -129,6 +141,7 @@ class Space : EventObserver {
       newY -= height + target.marginTop;
     }
     else static if (location == Location.north) {
+      newX += (target.width / 2) - (width / 2);
       newY -= height + target.marginTop;
     }
     else static if (location == Location.northEast) {
@@ -137,12 +150,14 @@ class Space : EventObserver {
     }
     else static if (location == Location.east) {
       newX += target.width + target.marginRight;
+      newY += (target.height / 2) - (height / 2);
     }
     else static if (location == Location.southEast) {
       newX += target.width + target.marginRight;
       newY += target.height + target.marginBottom;
     }
     else static if (location == Location.south) {
+      newX += (target.width / 2) - (width / 2);
       newY += target.height + target.marginBottom;
     }
     else static if (location == Location.southWest) {
@@ -151,6 +166,7 @@ class Space : EventObserver {
     }
     else static if (location == Location.west) {
       newX -= width + target.marginLeft;
+      newY += (target.height / 2) - (height / 2);
     }
     else {
       static assert(0);
@@ -180,6 +196,7 @@ class Space : EventObserver {
     }
     else static if (location == Location.northEast) {
       newX += target.width - (target.paddingRight + width);
+      newY += target.paddingTop;
     }
     else static if (location == Location.east) {
       newX += target.width - (target.paddingRight + width);
@@ -187,11 +204,11 @@ class Space : EventObserver {
     }
     else static if (location == Location.southEast) {
       newX += target.width - (target.paddingRight + width);
-      newY += targer.height - (target.paddingBottom + height);
+      newY += target.height - (target.paddingBottom + height);
     }
     else static if (location == Location.south) {
-      newX += (targer.width / 2) - (width / 2);
-      newY += targer.height - (target.paddingBottom + height);
+      newX += (target.width / 2) - (width / 2);
+      newY += target.height - (target.paddingBottom + height);
     }
     else static if (location == Location.southWest) {
       newX += target.paddingLeft;
