@@ -13,6 +13,8 @@ import core.thread : Thread, dur;
 
 import poison.ui : Window;
 import poison.core.threading : _uiTid, receiveMessages;
+import poison.core.eventobserver;
+import poison.core.eventargs;
 
 /// A wrapper around the core application.
 class Application {
@@ -164,7 +166,9 @@ class Application {
     _app = application;
 
     _app.updateStyles();
+    EventObserver.fireEventGlobal("applicationStart", EventArgs.empty);
     _app.process();
+    EventObserver.fireEventGlobal("applicationEnd", EventArgs.empty);
   }
 
   @property {
