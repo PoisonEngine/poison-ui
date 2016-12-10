@@ -359,7 +359,7 @@ class Component : Space {
   void renderSub() {
     if (_graphics && _parentContainer) {
       _graphics.renderSub(_parentContainer.position, _parentContainer.size);
-      _hidden = !intersect(_parentContainer); // We set it directly to avoid events ...
+      _hidden = !super.intersect(_parentContainer); // We set it directly to avoid events ...
     }
   }
 

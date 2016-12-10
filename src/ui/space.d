@@ -252,9 +252,9 @@ class Space : EventObserver {
   */
   bool intersect(Point p) {
 		return (p.x > this.x) &&
-			(p.x < (this.x + this.width)) &&
+			(p.x < (this.x + cast(ptrdiff_t)this.width)) &&
 			(p.y > this.y) &&
-			(p.y < (this.y + this.height));
+			(p.y < (this.y + cast(ptrdiff_t)this.height));
 	}
 
   /**
@@ -265,9 +265,9 @@ class Space : EventObserver {
   *   True if the two spaces intersects.
   */
   bool intersect(Space target) {
-    return(target.x < this.x + this.width) &&
-      (this.x < (target.x + target.width)) &&
-      (target.y < this.y + this.height) &&
-      (this.y < target.y + target.height);
+    return(target.x < this.x + cast(ptrdiff_t)this.width) &&
+      (this.x < (target.x + cast(ptrdiff_t)target.width)) &&
+      (target.y < this.y + cast(ptrdiff_t)this.height) &&
+      (this.y < target.y + cast(ptrdiff_t)target.height);
    }
 }
